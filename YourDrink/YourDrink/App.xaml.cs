@@ -6,13 +6,22 @@ namespace YourDrink
 {
     public partial class App : Application
     {
+        public string DatabasePath { get; set; }
+
         public App()
         {
             InitializeComponent();
 
             MainPage = new MainPage();
         }
+        public App(string databasePath)
+        {
+            InitializeComponent();
 
+            MainPage = new MainPage();
+
+            DatabasePath = databasePath;
+        }
         protected override void OnStart()
         {
         }

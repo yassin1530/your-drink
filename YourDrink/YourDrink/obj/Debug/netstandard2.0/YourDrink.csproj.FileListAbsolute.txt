@@ -1,0 +1,17 @@
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/bin/Debug/netstandard2.0/YourDrink.deps.json
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/bin/Debug/netstandard2.0/YourDrink.dll
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/bin/Debug/netstandard2.0/ref/YourDrink.dll
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/bin/Debug/netstandard2.0/YourDrink.pdb
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/App.xaml.g.cs
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/CategoryListPage.xaml.g.cs
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/DrinkPage.xaml.g.cs
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/FavoritePage.xaml.g.cs
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/MainPage.xaml.g.cs
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/style.css.g.cs
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/YourDrink.AssemblyInfoInputs.cache
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/YourDrink.AssemblyInfo.cs
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/XamlC.stamp
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/YourDrink.dll
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/ref/YourDrink.dll
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/YourDrink.pdb
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/YourDrink.csprojAssemblyReference.cache

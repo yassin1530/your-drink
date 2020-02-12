@@ -1,21 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "/Users/yassinbou/Desktop/yourDrink/YourDrink/YourDrink.Android/YourDrink.Android.csproj": {}
+    "/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/YourDrink.Android.csproj": {}
   },
   "projects": {
-    "/Users/yassinbou/Desktop/yourDrink/YourDrink/YourDrink.Android/YourDrink.Android.csproj": {
+    "/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/YourDrink.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/yassinbou/Desktop/yourDrink/YourDrink/YourDrink.Android/YourDrink.Android.csproj",
+        "projectUniqueName": "/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/YourDrink.Android.csproj",
         "projectName": "YourDrink.Android",
-        "projectPath": "/Users/yassinbou/Desktop/yourDrink/YourDrink/YourDrink.Android/YourDrink.Android.csproj",
-        "packagesPath": "/Users/yassinbou/.nuget/packages/",
-        "outputPath": "/Users/yassinbou/Desktop/yourDrink/YourDrink/YourDrink.Android/obj/",
+        "projectPath": "/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/YourDrink.Android.csproj",
+        "packagesPath": "/Users/preyde/.nuget/packages/",
+        "outputPath": "/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/obj/",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
-          "/Users/yassinbou/.config/NuGet/NuGet.Config"
+          "/Users/preyde/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "monoandroid90"
@@ -26,8 +26,8 @@
         "frameworks": {
           "monoandroid90": {
             "projectReferences": {
-              "/Users/yassinbou/Desktop/yourDrink/YourDrink/YourDrink/YourDrink.csproj": {
-                "projectPath": "/Users/yassinbou/Desktop/yourDrink/YourDrink/YourDrink/YourDrink.csproj"
+              "/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/YourDrink.csproj": {
+                "projectPath": "/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/YourDrink.csproj"
               }
             }
           }
@@ -48,17 +48,20 @@
         }
       }
     },
-    "/Users/yassinbou/Desktop/yourDrink/YourDrink/YourDrink/YourDrink.csproj": {
+    "/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/YourDrink.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/yassinbou/Desktop/yourDrink/YourDrink/YourDrink/YourDrink.csproj",
+        "projectUniqueName": "/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/YourDrink.csproj",
         "projectName": "YourDrink",
-        "projectPath": "/Users/yassinbou/Desktop/yourDrink/YourDrink/YourDrink/YourDrink.csproj",
-        "packagesPath": "/Users/yassinbou/.nuget/packages/",
-        "outputPath": "/Users/yassinbou/Desktop/yourDrink/YourDrink/YourDrink/obj/",
+        "projectPath": "/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/YourDrink.csproj",
+        "packagesPath": "/Users/preyde/.nuget/packages/",
+        "outputPath": "/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/Users/yassinbou/.config/NuGet/NuGet.Config"
+          "/Users/preyde/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
@@ -93,6 +96,10 @@
             "Xamarin.Forms": {
               "target": "Package",
               "version": "[4.3.0.908675, )"
+            },
+            "sqlite-net-pcl": {
+              "target": "Package",
+              "version": "[1.6.292, )"
             }
           },
           "imports": [
