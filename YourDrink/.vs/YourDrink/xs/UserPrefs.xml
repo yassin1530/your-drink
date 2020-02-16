@@ -1,13 +1,13 @@
 ﻿<Properties StartupConfiguration="{5927F3FF-EC9A-47E8-86C4-70E4BA6E7490}|Default">
   <MonoDevelop.Ide.ItemProperties.YourDrink.iOS FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="YourDrink/CategoryListPage.xaml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="YourDrink.Android/MainActivity.cs">
     <Files>
-      <File FileName="YourDrink.Android/MainActivity.cs" Line="26" Column="1" />
+      <File FileName="YourDrink.Android/MainActivity.cs" Line="31" Column="80" />
       <File FileName="YourDrink/App.xaml" />
       <File FileName="YourDrink/App.xaml.cs" />
       <File FileName="YourDrink/style.css" />
-      <File FileName="YourDrink/CategoryListPage.xaml.cs" />
-      <File FileName="YourDrink/CategoryListPage.xaml" Line="6" Column="97" />
+      <File FileName="YourDrink/CategoryListPage.xaml.cs" Line="42" Column="1" />
+      <File FileName="YourDrink/CategoryListPage.xaml" />
       <File FileName="YourDrink/MainPage.xaml" />
       <File FileName="YourDrink/FavoritePage.xaml" />
       <File FileName="YourDrink/FavoritePage.xaml.cs" />
@@ -16,26 +16,37 @@
       <File FileName="YourDrink.Android/Resources/drawable/Book.png" />
       <File FileName="YourDrink/DrinkPage.xaml" />
       <File FileName="YourDrink/DrinkPage.xaml.cs" />
+      <File FileName="YourDrink.Android/Assets/YourDrink.db" />
+      <File FileName="YourDrink/Model/Category.cs" />
+      <File FileName="YourDrink/Model/Drink.cs" />
+      <File FileName="YourDrink/Model/DrinkDetail.cs" />
+      <File FileName="YourDrink.Android/FileAccessHelper.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="YourDrink" expanded="True">
             <Node name="YourDrink" expanded="True">
+              <Node name="Dependencies" expanded="True" />
               <Node name="Model" expanded="True" />
               <Node name="App.xaml" expanded="True" />
-              <Node name="CategoryListPage.xaml" expanded="True" selected="True" />
+              <Node name="CategoryListPage.xaml" expanded="True" />
               <Node name="DrinkPage.xaml" expanded="True" />
               <Node name="FavoritePage.xaml" expanded="True" />
               <Node name="MainPage.xaml" expanded="True" />
             </Node>
             <Node name="YourDrink.Android" expanded="True">
-              <Node name="Assets" expanded="True" />
-              <Node name="Resources" expanded="True">
-                <Node name="drawable" expanded="True" />
+              <Node name="Assets" expanded="True">
+                <Node name="YourDrink.db" selected="True" />
               </Node>
             </Node>
           </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>App.DatabasePath</Value>
+          <Value>FileImageSource.FromUri(App.DatabasePath)</Value>
         </State>
       </Pad>
     </Pads>

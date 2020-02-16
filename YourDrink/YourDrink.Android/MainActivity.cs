@@ -1,5 +1,6 @@
 ﻿using System;
-
+using SQLite;
+using SQLitePCL;
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
@@ -27,7 +28,11 @@ namespace YourDrink.Droid
             string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             string fullPath = Path.Combine(folderPath, dbName);
 
-            LoadApplication(new App(fullPath));
+            string dbPath = FileAccessHelper.GetLocalFilePath("YourDrink.sqlite");
+  
+            LoadApplication(new App(dbPath));
+
+            //LoadApplication(new App(fullPath));
         
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

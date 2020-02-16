@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using YourDrink.Model;
 using Xamarin.Forms;
+using SQLite;
 
 namespace YourDrink
 {
@@ -12,7 +13,7 @@ namespace YourDrink
         {
           
             InitializeComponent();
-            var a = new trash()
+            /*var a = new trash()
             {
                 Id = 1,
                 Name = "yassin"
@@ -32,8 +33,15 @@ namespace YourDrink
             abc.Add(b);
             abc.Add(c);
             abc.ToArray();
-            CategoryList.ItemsSource = abc;
+            CategoryList.ItemsSource = abc;<<<<*/
+            using(SQLiteConnection conn = new SQLiteConnection(App.DatabasePath))
+            {
 
+
+                //var categorys =  conn.Table<Category>().ToArray();
+                var categorys = conn.Table<Category>();
+                CategoryList.ItemsSource = categorys.ToArray();
+            }
      
 
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using SQLite;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -6,7 +7,7 @@ namespace YourDrink
 {
     public partial class App : Application
     {
-        public string DatabasePath { get; set; }
+        public static string DatabasePath = String.Empty;
 
         public App()
         {
@@ -18,9 +19,11 @@ namespace YourDrink
         {
             InitializeComponent();
 
+            DatabasePath = databasePath;
+
             MainPage = new MainPage();
 
-            DatabasePath = databasePath;
+            
         }
         protected override void OnStart()
         {
