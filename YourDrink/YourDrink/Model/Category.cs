@@ -13,8 +13,6 @@ namespace YourDrink.Model
 
         public string Icon { get; set; }
 
-        public int Count { get; set; }
-
         public Category()
         {
         }

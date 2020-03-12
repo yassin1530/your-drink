@@ -19,3 +19,4 @@
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/ref/YourDrink.dll
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/YourDrink.pdb
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/YourDrink.csprojAssemblyReference.cache
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/CreateDrinkPage.xaml.g.cs

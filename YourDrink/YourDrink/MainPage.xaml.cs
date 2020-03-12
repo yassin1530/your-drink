@@ -81,6 +81,27 @@ namespace YourDrink
             Values = CategoryListPage.ActiveCategory;
         }
 
+        public static void NavToCreateDrinkPage(Drink drink, bool isFavorite = false)
+        {
+            int child = !isFavorite ? 0 : 1;
+            // For Back Navigation
+            Type = That.Children[child].GetType();
+
+
+            That.On<Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
+
+
+            // var item = MasterDetail.that.Detail.ToolbarItems[0];
+
+
+            That.Children[child] = new CreateDrinkPage(drink)
+            {
+                IconImageSource = !isFavorite ? "Book" : "Star"
+            };
+            That.CurrentPage = That.Children[child];
+            Values = CategoryListPage.ActiveCategory;
+        }
+
         protected override bool OnBackButtonPressed()
         {
             // Max 2 mal zurück. DrinkPage braucht Kategorie für Liste also Values hat Category Objekt
@@ -122,12 +143,12 @@ namespace YourDrink
 
         void FavoritePage_Appearing(System.Object sender, System.EventArgs e)
         {
-            MasterDetail.that.Detail.ToolbarItems[0] = new ToolbarItem() { IconImageSource = "baseline_add_white_24" };
             ((FavoritePage)sender).FillCategoryList();
         }
 
         void CategoryListPage_Appearing(System.Object sender, System.EventArgs e)
         {
+            //MasterDetail.ActiveItem.Text = "Rezeptbuch";
             //MasterDetail.that.Detail.ToolbarItems[0] = null;
         }
     }

@@ -505,3 +505,4 @@
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/obj/Debug/res/drawable/baseline_keyboard_arrow_right_black_24.png
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/obj/Debug/res/drawable/baseline_keyboard_arrow_right_black_36.png
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/obj/Debug/res/drawable/baseline_keyboard_arrow_right_gray_36.png
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/obj/Debug/res/drawable/round_add_a_photo_white_48.png

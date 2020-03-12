@@ -4572,12 +4572,13 @@ public final class R {
     public static final int plus2=0x7f07007f;
     public static final int plus_24p=0x7f070080;
     public static final int plus_35px=0x7f070081;
-    public static final int settings=0x7f070082;
-    public static final int star=0x7f070083;
-    public static final int star_border_32p=0x7f070084;
-    public static final int star_filled_32p=0x7f070085;
-    public static final int tooltip_frame_dark=0x7f070086;
-    public static final int tooltip_frame_light=0x7f070087;
+    public static final int round_add_a_photo_white_48=0x7f070082;
+    public static final int settings=0x7f070083;
+    public static final int star=0x7f070084;
+    public static final int star_border_32p=0x7f070085;
+    public static final int star_filled_32p=0x7f070086;
+    public static final int tooltip_frame_dark=0x7f070087;
+    public static final int tooltip_frame_light=0x7f070088;
   }
   public static final class id {
     public static final int ALT=0x7f080000;

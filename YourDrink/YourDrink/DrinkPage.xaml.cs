@@ -12,7 +12,7 @@ namespace YourDrink
     public partial class DrinkPage : ContentPage
     {
         public Category ActiveCategory { get; set; } 
-
+        public static DrinkPage That { get; set; }
 
         public DrinkPage(Category activeCategory)
         {
@@ -20,6 +20,9 @@ namespace YourDrink
 
             ActiveCategory = activeCategory;
 
+            MasterDetail.MainItem.Clicked -= MasterDetail.that.AddCategory;
+            MasterDetail.MainItem.Clicked += AddDrink;
+            That = this;
         }
         public void FillWithAllDrinks()
         {
@@ -68,6 +71,20 @@ namespace YourDrink
                 MainPage.NavToDetailPage(drink, Favorite.IsFavorite);
             }
 
+        }
+        public void AddDrink(object sender, EventArgs e)
+        {
+           /* string input = await DisplayPromptAsync("Neuer Drink", "", maxLength: 20);
+
+            if (input != null)
+            {
+                using (SQLiteConnection conn = new SQLiteConnection(App.DatabasePath))
+                {
+                    conn.Insert(new Category() { Name = input });
+                    var abc = conn.Table<Category>();
+                  
+                }
+            }*/
         }
     }
 }

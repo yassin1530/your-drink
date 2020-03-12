@@ -19,7 +19,7 @@ namespace YourDrink.Droid
 
 		private static void CopyDatabaseIfNotExists(string dbPath)
 		{
-			if (!File.Exists(dbPath))
+			if (File.Exists(dbPath))
 			{
 				using (var br = new BinaryReader(Application.Context.Assets.Open("YourDrink.sqlite")))
 				{
