@@ -10,7 +10,7 @@ namespace YourDrink.Model
         [NotNull]
         public int DrinkId { get; set; }
 
-        public string Content { get; set; }
+        public int ReceptId { get; set; }
 
         public string Making { get; set; }
 
@@ -19,7 +19,7 @@ namespace YourDrink.Model
         [MaxLength(5)]
         public int Rating { get; set; }
 
-        public bool Favorite { get; set; }
+        public int Favorite { get; set; }
 
 
         public DrinkDetail()

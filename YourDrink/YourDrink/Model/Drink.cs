@@ -13,6 +13,7 @@ namespace YourDrink.Model
         [NotNull]
         public int CategoryId { get; set; }
 
+   
 
         public Drink()
         {

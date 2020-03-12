@@ -13,7 +13,7 @@ namespace YourDrink
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new MasterDetail();
         }
         public App(string databasePath)
         {
@@ -21,7 +21,7 @@ namespace YourDrink
 
             DatabasePath = databasePath;
 
-            MainPage = new MainPage();
+            MainPage = new MasterDetail();
 
             
         }

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="YourDrink.DetailPage" xmlns:local="clr-namespace:YourDrink">
+     <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:FormatAmount x:Key="FormatAmount" />
+            <local:Base64ImageConverter x:Key="Base64ToImage" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout HorizontalOptions="Center">
+                <Label x:Name="DrinkName" TextColor="Black" FontSize="35" HorizontalTextAlignment="Center" />
+                <Image x:Name="DrinkImage" /><!--Source="{Binding Image, Converter={StaticResource Base64ToImage}}" -->
+                <Label Text="Zutaten" FontSize="30" HorizontalTextAlignment="Center" Margin="20"  />
+               
+                <ListView x:Name="ReceptList" SeparatorVisibility="None" SelectionMode="None" RowHeight="25">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label HorizontalOptions="Center" HorizontalTextAlignment="Center" Text="{Binding Name}" Grid.Column="0" />
+                                        <Label HorizontalOptions="Center" HorizontalTextAlignment="Center" Text="{Binding Amount, Converter={x:StaticResource FormatAmount}}" Grid.Column="1" /><!--, StringFormat={x:Static local:DetailPage.Amount}--> 
+                                    </Grid>
+                                </ViewCell.View>
+                            </ViewCell>
+                            </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Label Text="Zubereitung" FontSize="30" HorizontalTextAlignment="Center" Margin="0, 20, 0, 0" />
+                <Label x:Name="MakingLabel" HorizontalTextAlignment="Center" Margin="20" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

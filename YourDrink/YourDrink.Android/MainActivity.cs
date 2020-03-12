@@ -8,12 +8,48 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using System.IO;
+using Xamarin.Forms;
+using Android.Content.Res;
+
 
 namespace YourDrink.Droid
 {
+   
     [Activity(Label = "YourDrink", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        /* public static ContentPage CurrentPage { get; set; }
+
+
+         public override bool OnOptionsItemSelected(IMenuItem item)
+         {
+             var app = App.Current;
+             if (item.ItemId == 16908332) // This makes me feel dirty.
+             {
+                 var navPage = ((app.MainPage.Navigation.ModalStack[0] as MasterDetailPage).Detail as ContentPage);
+
+                 if (app != null && navPage.Navigation.NavigationStack.Count > 0)
+                 {
+                     int index = navPage.Navigation.NavigationStack.Count - 1;
+
+                     var currentPage = navPage.Navigation.NavigationStack[index];
+
+
+                     var vm = currentPage.BindingContext as Android.Arch.Lifecycle.ViewModel;
+
+                     if (vm != null)
+                     {
+
+                             return true;
+                     }
+
+                 }
+             }
+
+             return base.OnOptionsItemSelected(item);
+         }*/
+
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
@@ -31,7 +67,7 @@ namespace YourDrink.Droid
             string dbPath = FileAccessHelper.GetLocalFilePath("YourDrink.sqlite");
   
             LoadApplication(new App(dbPath));
-
+            
             //LoadApplication(new App(fullPath));
         
         }

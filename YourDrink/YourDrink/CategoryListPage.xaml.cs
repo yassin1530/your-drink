@@ -3,53 +3,70 @@ using System.Collections.Generic;
 using YourDrink.Model;
 using Xamarin.Forms;
 using SQLite;
+using System.Linq;
 
 namespace YourDrink
 {
     public partial class CategoryListPage : ContentPage
     {
-        public List<trash> abc;
+        public static CategoryListPage that;
+        private Array Categorys { get; set; }
+        public static Category ActiveCategory { get; set; }
         public CategoryListPage()
         {
-          
+
             InitializeComponent();
-            /*var a = new trash()
-            {
-                Id = 1,
-                Name = "yassin"
-            };
-            var b = new trash()
-            {
-                Id = 2,
-                Name = "nick"
-            };
-            var c = new trash()
-            {
-                Id = 3,
-                Name = "pascal"
-            };
-            abc = new List<trash>();
-            abc.Add(a);
-            abc.Add(b);
-            abc.Add(c);
-            abc.ToArray();
-            CategoryList.ItemsSource = abc;<<<<*/
-            using(SQLiteConnection conn = new SQLiteConnection(App.DatabasePath))
-            {
 
+            that = this;
 
-                //var categorys =  conn.Table<Category>().ToArray();
-                var categorys = conn.Table<Category>();
-                CategoryList.ItemsSource = categorys.ToArray();
-            }
-     
+            FillCategoryList();
 
         }
 
-        void CategoryButton_Clicked(System.Object sender, System.EventArgs e)
+
+        void CategoryButton_Clicked(System.Object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new DrinkPage(), true);
-           
+            var button = (sender as Button);
+
+            int categoryId = Convert.ToInt32(button.ClassId.Substring(button.ClassId.Length - 1));
+
+
+            using (SQLiteConnection conn = new SQLiteConnection(App.DatabasePath))
+            {
+                ActiveCategory = new Category();
+                ActiveCategory = conn.Get<Category>(categoryId);
+
+                MainPage.NavToDrinkPage(ActiveCategory);
+
+            }
+
+
+        }
+
+       public async void AddCategory_Clicked(System.Object sender, System.EventArgs e)
+        {
+            string input = await DisplayPromptAsync("Neue Kategorie", "", maxLength: 20);
+            
+            if (input != null)
+            {
+                using (SQLiteConnection conn = new SQLiteConnection(App.DatabasePath))
+                {
+                    conn.Insert(new Category() { Name = input });
+                    FillCategoryList();
+                }
+            }
+        }
+        private void FillCategoryList()
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(App.DatabasePath))
+            {
+
+                Categorys = conn.Query<Category>(@"SELECT c.*, COUNT(d.CategoryId) AS Count
+                                                   FROM Category AS c JOIN Drink AS d
+                                                   WHERE c.Id = d.CategoryId GROUP BY d.CategoryId ").ToArray();
+                
+                CategoryList.ItemsSource = Categorys;
+            }
         }
     }
 }

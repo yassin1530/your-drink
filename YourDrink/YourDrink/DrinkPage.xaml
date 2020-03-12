@@ -1,8 +1,33 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="YourDrink.DrinkPage">
     <ContentPage.Content>
-        <StackLayout>
+        <ListView x:Name="DrinkList" SelectionMode="None" ItemTapped="DrinkButton_Clicked">
+             <ListView.ItemTemplate>
 
-        </StackLayout>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                           
+                      <Button x:Name="DrinkButton" ClassId="{Binding Id, StringFormat='DrinkButton{0}'}" Clicked="DrinkButton_Clicked" Text="{Binding Name}" BackgroundColor="White"  />
+                           
+                                                            <!--<Grid x:Name="CategoryGrid" ColumnSpacing="0">
+                               <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                             
+                                <Image BackgroundColor="Black" x:Name="DrinkImage" Grid.Column="0"  Source="cocktails" Aspect="AspectFill"/>
+                                <Label x:Name="DrinkLabel" Grid.Column="1"   TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" BackgroundColor="White" Text="{Binding Name}" />
+                                </Grid>-->
+                          
+                        
+                        </ViewCell.View>
+
+                    </ViewCell>
+
+                </DataTemplate>
+
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>
