@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:YourDrink" x:Class="YourDrink.CreateDrinkPage">
-     <ContentPage.Resources>
+    <ContentPage.Resources>
         <ResourceDictionary>
             <local:FormatAmount x:Key="FormatAmount" />
             <local:Base64ImageConverter x:Key="Base64ToImage" />
@@ -10,33 +10,42 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout HorizontalOptions="Center">
-                <Entry x:Name="DrinkName" TextColor="Black" FontSize="35" HorizontalTextAlignment="Center" />
-                <Image x:Name="DrinkImage" />
+                <Entry x:Name="DrinkName" TextColor="Black" FontSize="35" HorizontalTextAlignment="Center" HorizontalOptions="Center" Unfocused="UpdateDrinkName" />
+                <Grid>
+                    <Image   x:Name="DrinkImage"  />
+                    <ImageButton x:Name="SelectImageButton"  BackgroundColor="Red" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Source="Plus_35px" Opacity="0.6"/>
+
+
+
+                </Grid>
                 <Label Text="Zutaten" FontSize="30" HorizontalTextAlignment="Center" Margin="20"  />
-               
-                <ListView x:Name="ReceptList" SeparatorVisibility="None" SelectionMode="None" RowHeight="25">
+
+                <ListView x:Name="ReceptList" SeparatorVisibility="None" SelectionMode="None" RowHeight="50">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <ViewCell.View>
                                     <Grid x:Name="ReceptListGrid">
                                         <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="2*"/>
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
-                                        <Entry HorizontalOptions="Center" HorizontalTextAlignment="Center" Text="{Binding Name}" Placeholder="Zutat" Grid.Column="0" />
-                                        <Entry HorizontalOptions="Center" HorizontalTextAlignment="Center" Text="{Binding Amount, Converter={x:StaticResource FormatAmount}}" Placeholder="Menge" Grid.Column="1" /><!--, StringFormat={x:Static local:DetailPage.Amount}--> 
+
+                                        <Entry x:Name="NameEntry" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="End"  Text="{Binding Name}" Placeholder="Zutat" Grid.Column="0" Unfocused="UpdateRecepts" ClassId="{Binding Id, StringFormat='Name{0}'}"/>
+                                        <Entry x:Name="AmountEntry" HorizontalOptions="Center" HorizontalTextAlignment="Center" Text="{Binding Amount, Converter={x:StaticResource FormatAmount}}" Placeholder="Menge" Grid.Column="1" ClassId="{Binding Id, StringFormat='Amount{0}'}" Unfocused="UpdateRecepts" />
+                                        <ImageButton Source="baseline_remove_circle_red_24dp" BackgroundColor="Transparent" Scale="0.4" Grid.Column="2" Clicked="DeleteRecept" ClassId="{Binding Id}" />
                                     </Grid>
                                 </ViewCell.View>
                             </ViewCell>
-                            </DataTemplate>
+                        </DataTemplate>
                     </ListView.ItemTemplate>
                     <ListView.Footer>
-                        <Button x:Name="AddIngredient" Text="Neue Zutat" Clicked="AddIngredient_Clicked" />
+                        <Button x:Name="AddIngredient" Margin="30" Text="Neue Zutat" Clicked="AddRecept" />
                     </ListView.Footer>
                 </ListView>
                 <Label Text="Zubereitung" FontSize="30" HorizontalTextAlignment="Center"  Margin="0, 20, 0, 0" />
-                <Entry x:Name="MakingLabel" HorizontalTextAlignment="Center" Margin="20" HeightRequest="200" />
+                <Editor x:Name="MakingLabel" Margin="20" AutoSize="TextChanges" Unfocused="UpdateMaking" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

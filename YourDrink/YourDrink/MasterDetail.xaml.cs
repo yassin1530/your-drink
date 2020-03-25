@@ -11,8 +11,8 @@ namespace YourDrink
 {
     public partial class MasterDetail : MasterDetailPage
     {
-        public static MasterDetail that { get; set; }
-        public static ToolbarItem MainItem { get { return MainItem; } set => that.MainToolbarItem = MainItem; }
+        public static MasterDetail That { get; set; }
+        public static ToolbarItem MainItem { get; set; } //{ get { return MainItem; } set => That.MainToolbarItem = MainItem; }
 
         public MasterDetail()
         {
@@ -27,9 +27,10 @@ namespace YourDrink
 
 
             masterDetailPage.Detail = page;
-            MainItem = MainToolbarItem;
-            that = this;
-            
+           
+         
+            That = this;
+            MainItem = That.MainToolbarItem;
         }
 
         public void OpenSideBar()
@@ -37,9 +38,14 @@ namespace YourDrink
             masterDetailPage.IsPresented = true;
         }
 
-       public void AddCategory(System.Object sender, System.EventArgs e)
+       public static void AddCategory(System.Object sender, System.EventArgs e)
         {
             CategoryListPage.That.AddCategory(sender, e);
+        }
+        public static void SetMainToolbarItem (string iconImageSource, EventHandler function)
+        {
+            That.MainToolbarItem.IconImageSource = iconImageSource;
+            That.MainToolbarItem.Clicked += function;
         }
     }
 }

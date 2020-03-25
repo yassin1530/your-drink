@@ -19,11 +19,12 @@ namespace YourDrink
         {
             InitializeComponent();
             Drink = drink;
-            var items = MasterDetail.that.ToolbarItems;
-            var item = new ToolbarItem() { IconImageSource = "Settings" };
-            item.Clicked += OpenForChange;
+            MasterDetail.SetMainToolbarItem("baseline_create_white_24dp", OpenForChange);
+            //var items = MasterDetail.That.ToolbarItems;
+            //var item = new ToolbarItem() { IconImageSource = "Settings" };
+            //item.Clicked += OpenForChange;
             //items[items.IndexOf(MasterDetail.MainItem)] = item;
-            MasterDetail.MainItem = item;
+           // MasterDetail.MainItem = item;
 
           
 
@@ -48,9 +49,10 @@ namespace YourDrink
 
             return amount == "0" ? string.Empty : amount;
         }
-        public static void OpenForChange(object sender, EventArgs e)
+        public void OpenForChange(object sender, EventArgs e)
         {
-            MainPage.NavToCreateDrinkPage(Drink);
+            // MainPage.NavToCreateDrinkPage(Drink);
+            Navigation.PushModalAsync(new CreateDrinkPage(Drink), true);
         }
     }
 }

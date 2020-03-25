@@ -1,25 +1,19 @@
 ﻿<Properties StartupConfiguration="{5927F3FF-EC9A-47E8-86C4-70E4BA6E7490}|Default">
   <MonoDevelop.Ide.ItemProperties.YourDrink.iOS FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="YourDrink/FormatAmount.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../.nuget/packages/xam.plugin.media/4.0.1.5/readme.txt">
     <Files>
-      <File FileName="YourDrink/MainPage.xaml.cs" Line="73" Column="19" />
-      <File FileName="YourDrink/MasterDetail.xaml" Line="8" Column="32" />
-      <File FileName="YourDrink/MasterDetail.xaml.cs" Line="34" Column="17" />
-      <File FileName="YourDrink/DrinkPage.xaml.cs" Line="24" Column="30" />
-      <File FileName="YourDrink/CategoryListPage.xaml.cs" Line="55" Column="5" />
-      <File FileName="YourDrink/CreateDrinkPage.xaml" Line="35" Column="104" />
-      <File FileName="YourDrink/CreateDrinkPage.xaml.cs" Line="39" Column="11" />
-      <File FileName="YourDrink/DetailPage.xaml.cs" Line="28" Column="11" />
-      <File FileName="YourDrink/DetailPage.xaml" Line="9" Column="1" />
-      <File FileName="YourDrink/FormatAmount.cs" Line="22" Column="1" />
-      <File FileName="YourDrink/FormatAmount.cs" Line="22" Column="1" />
+      <File FileName="YourDrink/CreateDrinkPage.xaml" Line="13" Column="161" />
+      <File FileName="YourDrink/CreateDrinkPage.xaml.cs" Line="6" Column="1" />
+      <File FileName="../../../.nuget/packages/xam.plugin.media/4.0.1.5/readme.txt" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="YourDrink" expanded="True">
             <Node name="YourDrink" expanded="True">
-              <Node name="Dependencies" expanded="True" />
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" selected="True" />
+              </Node>
               <Node name="Model" expanded="True" />
               <Node name="App.xaml" expanded="True" />
               <Node name="CategoryListPage.xaml" expanded="True" />
@@ -28,7 +22,6 @@
               <Node name="DrinkPage.xaml" expanded="True" />
               <Node name="DrinkTabPage.xaml" expanded="True" />
               <Node name="FavoritePage.xaml" expanded="True" />
-              <Node name="FormatAmount.cs" selected="True" />
               <Node name="MainPage.xaml" expanded="True" />
               <Node name="MasterDetail.xaml" expanded="True" />
               <Node name="PostPage.xaml" expanded="True" />
@@ -45,13 +38,27 @@
           </Node>
         </State>
       </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>Categorys</Value>
+          <Value>abc.ToArray()</Value>
+          <Value>conn.Table&lt;global::YourDrink.Model.Category&gt;().ToArray()</Value>
+          <Value>item.IconImageSource</Value>
+          <Value>That.MainToolbarItem.IconImageSource</Value>
+          <Value>ReceptList.GetChildElements(0)</Value>
+          <Value>ReceptList.FindByName&lt;global::Xamarin.Forms.Entry&gt;("NameEntry")</Value>
+          <Value>value.GetType()</Value>
+        </State>
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.YourDrink.Android AndroidDesignerPreferredTheme="Theme.AppCompat.Light.NoActionBar" AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.Android_Accelerated_Oreo" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/CreateDrinkPage.xaml.cs" relfile="YourDrink/CreateDrinkPage.xaml.cs" line="69" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

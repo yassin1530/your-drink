@@ -19,7 +19,8 @@ namespace YourDrink
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            throw new NotImplementedException();
+
+            return (string)value != "" ? System.Convert.ToDecimal(value) : value;
         }
 
     }

@@ -20,7 +20,7 @@ namespace YourDrink
 
             ActiveCategory = activeCategory;
 
-            MasterDetail.MainItem.Clicked -= MasterDetail.that.AddCategory;
+            MasterDetail.MainItem.Clicked -= MasterDetail.AddCategory;
             MasterDetail.MainItem.Clicked += AddDrink;
             That = this;
         }
@@ -74,17 +74,7 @@ namespace YourDrink
         }
         public void AddDrink(object sender, EventArgs e)
         {
-           /* string input = await DisplayPromptAsync("Neuer Drink", "", maxLength: 20);
-
-            if (input != null)
-            {
-                using (SQLiteConnection conn = new SQLiteConnection(App.DatabasePath))
-                {
-                    conn.Insert(new Category() { Name = input });
-                    var abc = conn.Table<Category>();
-                  
-                }
-            }*/
+            Navigation.PushModalAsync(new CreateDrinkPage(), true);
         }
     }
 }
