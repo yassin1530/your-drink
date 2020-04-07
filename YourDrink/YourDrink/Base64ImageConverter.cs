@@ -13,7 +13,7 @@ namespace YourDrink
 
             if (base64 == null)
                 return null;
-
+          
             return ImageSource.FromStream(() =>
             {
                 return new MemoryStream(System.Convert.FromBase64String(base64));

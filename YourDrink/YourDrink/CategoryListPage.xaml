@@ -10,23 +10,26 @@
     <ContentPage.Content>
     
            <StackLayout>
-        <ListView x:Name="CategoryList" SelectionMode="None">
+        <ListView x:Name="CategoryList" SelectionMode="None" ItemTapped="CategoryList_ItemTapped">
           
             <ListView.ItemTemplate>
                
                 <DataTemplate>
                    
-                    <ViewCell>
+                    <ViewCell ClassId="{Binding Id}">
                         <ViewCell.View>
-                           <Grid BackgroundColor="White" ColumnSpacing="0" Padding="0">
+                           <Grid BackgroundColor="White" ColumnSpacing="0" Padding="0" >
                                <Grid.ColumnDefinitions>
-                                   <ColumnDefinition Width="5*"/>
-                           
+                                   <ColumnDefinition Width="2*"/>
+                                   <ColumnDefinition Width="4*"/>
+                                   <ColumnDefinition Width="*"/>
                                    <ColumnDefinition Width="*"/>
                                </Grid.ColumnDefinitions>
-                            <Button Grid.Column="0" Clicked="CategoryButton_Clicked" ClassId="{Binding Id, StringFormat='CategoryButton{0}'}" ImageSource="{Binding Icon, Converter={StaticResource Base64ToImage}}" BackgroundColor="Transparent" Text="{Binding Name}" />
-                            <Label x:Name="CountLabel" Grid.Column="1" Text="{Binding Count}" BackgroundColor="Transparent" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="#808080" Margin="0, 0, -10, 0" FontSize="15" />
-                          <Image Grid.Column="2" Source="baseline_keyboard_arrow_right_gray_36"  BackgroundColor="Transparent" Scale="0.5" />
+                               <Image  Source="{Binding Icon, Converter={StaticResource Base64ToImage}}"/>
+                               <Label Grid.Column="1" VerticalTextAlignment="Center" FontSize="Medium" TextColor="#4c5052" HorizontalTextAlignment="Start" Text="{Binding Name}"  />
+              
+                            <Label x:Name="CountLabel" Grid.Column="2" Text="{Binding Count}" BackgroundColor="Transparent" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="#808080" Margin="0, 0, -10, 0" FontSize="15" />
+                          <Image Grid.Column="3" Source="baseline_keyboard_arrow_right_gray_36"  BackgroundColor="Transparent" Scale="0.5" />
                         </Grid>
                         </ViewCell.View>
 
@@ -37,7 +40,7 @@
             </ListView.ItemTemplate>
     
         </ListView>
-       <!-- <Button x:Name="AddCategory"  Opacity="0.6"  BackgroundColor="#4d0018" TextColor="White" Text="Hinzufügen" VerticalOptions="EndAndExpand" Clicked="AddCategory_Clicked"/>-->
+
         </StackLayout>
             
    

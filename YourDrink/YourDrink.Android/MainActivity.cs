@@ -10,48 +10,21 @@ using Android.OS;
 using System.IO;
 using Xamarin.Forms;
 using Android.Content.Res;
-
+using Android.Content;
+using System.Threading.Tasks;
 
 namespace YourDrink.Droid
 {
-   
+
     [Activity(Label = "YourDrink", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
-        /* public static ContentPage CurrentPage { get; set; }
 
-
-         public override bool OnOptionsItemSelected(IMenuItem item)
-         {
-             var app = App.Current;
-             if (item.ItemId == 16908332) // This makes me feel dirty.
-             {
-                 var navPage = ((app.MainPage.Navigation.ModalStack[0] as MasterDetailPage).Detail as ContentPage);
-
-                 if (app != null && navPage.Navigation.NavigationStack.Count > 0)
-                 {
-                     int index = navPage.Navigation.NavigationStack.Count - 1;
-
-                     var currentPage = navPage.Navigation.NavigationStack[index];
-
-
-                     var vm = currentPage.BindingContext as Android.Arch.Lifecycle.ViewModel;
-
-                     if (vm != null)
-                     {
-
-                             return true;
-                     }
-
-                 }
-             }
-
-             return base.OnOptionsItemSelected(item);
-         }*/
-
+        internal static MainActivity Instance { get; private set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
+
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
@@ -60,16 +33,18 @@ namespace YourDrink.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
-            string dbName = "YourDrink.sqlite";
+           /* string dbName = "YourDrink.sqlite";
             string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-            string fullPath = Path.Combine(folderPath, dbName);
+            string fullPath = Path.Combine(folderPath, dbName);*/
 
             string dbPath = FileAccessHelper.GetLocalFilePath("YourDrink.sqlite");
-  
+
+            Instance = this;
+
             LoadApplication(new App(dbPath));
-            
+
             //LoadApplication(new App(fullPath));
-        
+
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
@@ -77,5 +52,40 @@ namespace YourDrink.Droid
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+
+        public static readonly int PickImageId = 1000;
+        public TaskCompletionSource<Stream> PickImageTaskCompletionSource { set; get; }
+
+        // Create a Method ButtonOnClick.   
+      /*  public void SelectImage(object sender, EventArgs eventArgs)
+        {
+            Intent = new Intent();
+            Intent.SetType("image/*");
+            Intent.SetAction(Intent.ActionGetContent);
+            StartActivityForResult(Intent.CreateChooser(Intent, "Select Picture"), PickImageId);
+        }*/
+
+        // Create a Method OnActivityResult(it is select the image controller)   
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent intent)
+        {
+            base.OnActivityResult(requestCode, resultCode, intent);
+
+            if (requestCode == PickImageId)
+            {
+                if ((resultCode == Result.Ok) && (intent != null))
+                {
+                    Android.Net.Uri uri = intent.Data;
+                    Stream stream = ContentResolver.OpenInputStream(uri);
+
+                    // Set the Stream as the completion of the Task
+                    PickImageTaskCompletionSource.SetResult(stream);
+                }
+                else
+                {
+                    PickImageTaskCompletionSource.SetResult(null);
+                }
+            }
+        }
+
     }
 }

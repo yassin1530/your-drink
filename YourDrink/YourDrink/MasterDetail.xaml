@@ -2,30 +2,35 @@
 <MasterDetailPage  MasterBehavior="Split" x:Name="masterDetailPage"  xmlns="http://xamarin.com/schemas/2014/forms" xmlns:local="clr-namespace:YourDrink" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="YourDrink.MasterDetail">
 
     <MasterDetailPage.ToolbarItems>
-        <ToolbarItem  Order="Secondary" Text="xxx"/>
-        <ToolbarItem Order="Secondary" Text="abc"/>
-        <ToolbarItem x:Name="MainToolbarItem" IconImageSource="baseline_add_white_24" Clicked="AddCategory" />
+        <ToolbarItem x:Name="MainToolbarItem" ClassId="Main" IconImageSource="baseline_add_white_24" Clicked="AddCategory"/>
     </MasterDetailPage.ToolbarItems>
     <MasterDetailPage.Master>
         <ContentPage Title="Junk">
             <StackLayout VerticalOptions="Start">
-               
-               <FlexLayout Margin="20">
-          <Frame CornerRadius="50" IsClippedToBounds="True" Padding="0" >
-                                <Image x:Name="MasterProfileImage" BackgroundColor="LightGray" WidthRequest="50" HeightRequest="50"/>
-              </Frame>
-                   <Label x:Name="Uname" Text="Preyde" Margin="40, 0, 0, 0" VerticalTextAlignment="Center" FontSize="Medium" />
-    
+
+                <FlexLayout Margin="20">
+                    <Frame CornerRadius="50" IsClippedToBounds="True" Padding="0" >
+                        <Image x:Name="MasterProfileImage" BackgroundColor="LightGray" WidthRequest="50" HeightRequest="50"/>
+                    </Frame>
+                    <Label x:Name="Uname" Text="Pascal Frank" Margin="40, 0, 0, 0" VerticalTextAlignment="Center" FontSize="Medium" />
+
                 </FlexLayout>
-                
+
                 <Label HeightRequest="0.1" BackgroundColor="LightGray"/>
                 <Grid ColumnSpacing="0" Padding="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="4*"/>
                     </Grid.ColumnDefinitions>
-                    <Image Source="Settings"  Scale="0.4" Grid.Column="0" />
-                    <Label Margin="-5, 0, 0, 0"   HorizontalTextAlignment="Start" VerticalTextAlignment="Center" Text="Einstellungen"  Grid.Column="1"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+
+                    <Image Grid.Row="0" Grid.Column="0" Source="Settings"  Scale="0.4"  />
+                    <Label Grid.Row="0" Margin="-5, 0, 0, 0"   HorizontalTextAlignment="Start" VerticalTextAlignment="Center" Text="Dein Content"  Grid.Column="1"/>
+                    <Image Grid.Row="1" Grid.Column="0" Source="Settings"  Scale="0.4"  />
+                    <Label Grid.Row="1" Margin="-5, 0, 0, 0"   HorizontalTextAlignment="Start" VerticalTextAlignment="Center" Text="Einstellungen"  Grid.Column="1"/>
                 </Grid>
                 <!--<Button BackgroundColor="Transparent" Text="Einstellungen" FontSize="25" TextColor="Gray" Scale="0.3"  ImageSource="Settings" />-->
             </StackLayout>

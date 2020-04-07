@@ -18,122 +18,114 @@ namespace YourDrink
     [DesignTimeVisible(false)]
     public partial class MainPage : Xamarin.Forms.TabbedPage
     {
-        public static Type Type { get; set; }
-        public static object Values { get; set; }
+        public static bool HasLoaded = false;
         public static MainPage That { get; set; }
-        public static Favorite Favorite { get; set; }
-
+        public static Favorite Favorite { get; set; } 
+        public static int ActivePage { get; set; } // 0 = CategoryPage, 1 = DrinkPage, 2 = DetailPage, 3 = CreateDrinkPage
+   
 
         public MainPage()
         {
             InitializeComponent();
             That = this;
-            //this.Children.Add(new DrinkPage(new Model.Category() { Id = 1}));
 
-            this.On<Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
+            On<Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
+            HasLoaded = true;
         }
-        public static void NavToDrinkPage(Category category, bool isFavorite = false)
+        public static void NavToDrinkPage(bool isFavorite = false, List<Drink> drinkList = null)
         {
+            ActivePage = 1;
             int child = !isFavorite ? 0 : 1;
-            var childPage = That.Children[child];
-            Type = That.Children[child].GetType();
 
-            That.On<Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
+            //Type = That.Children[child].GetType();
 
-            That.Children[child] = new DrinkPage(category);
+
+            That.Children[child] = child == 0 ? new DrinkPage(CategoryListPage.ActiveCategory) : null;
             That.Children[child].IconImageSource = !isFavorite ? "Book" : "Star";
             That.CurrentPage = That.Children[child];
 
             if (!isFavorite)
             {
                 ((DrinkPage)That.Children[child]).FillWithAllDrinks();
+                MasterDetail.SetMainToolbarItem("baseline_add_white_24", DrinkPage.That.AddDrink);
             }
-            else
-            {
-                ((DrinkPage)That.Children[child]).FillWithFavoriteDrinks();
-            }
+
+           
 
         }
 
-        public static void NavToDetailPage(Drink drink, bool isFavorite = false)
+        public static void NavToDetailPage(bool isFavorite = false)
         {
+            ActivePage = 2;
             int child = !isFavorite ? 0 : 1;
             // For Back Navigation
-            Type = That.Children[child].GetType();
+            //Type = That.Children[child].GetType();
 
-
-            That.On<Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
-
-
-            // var item = MasterDetail.that.Detail.ToolbarItems[0];
             var item = new ToolbarItem();
 
-            var favorite = new Favorite(item, drink);
-            favorite.SetIconOnNav();
-            Favorite = favorite;
-            
-
-            That.Children[child] = new DetailPage(drink)
+       
+            That.Children[child] = new DetailPage(DrinkPage.ActiveDrink)
             {
                 IconImageSource = !isFavorite ? "Book" : "Star"
             };
             That.CurrentPage = That.Children[child];
-            Values = CategoryListPage.ActiveCategory;
+            //Values = CategoryListPage.ActiveCategory;
+
+            Favorite = new Favorite();
+            Favorite.SetIconOnNav();
+
+            MasterDetail.SetMainToolbarItem("baseline_create_white_24dp", DetailPage.That.OpenForChange);
+
         }
 
-        public static void NavToCreateDrinkPage(Drink drink, bool isFavorite = false)
+        public static void NavToCreateDrinkPage(bool isFavorite = false)
         {
+            ActivePage = 3;
             int child = !isFavorite ? 0 : 1;
             // For Back Navigation
-            Type = That.Children[child].GetType();
+           // Type = That.Children[child].GetType();
 
+            MasterDetail.SetMainToolbarItem("baseline_done_white_24dp", CreateDrinkPage.AcceptPressed);
 
-            That.On<Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
-
-
-            // var item = MasterDetail.that.Detail.ToolbarItems[0];
-
-
-            That.Children[child] = new CreateDrinkPage(drink)
+            That.Children[child] = new CreateDrinkPage(DrinkPage.ActiveDrink)
             {
                 IconImageSource = !isFavorite ? "Book" : "Star"
             };
             That.CurrentPage = That.Children[child];
-            Values = CategoryListPage.ActiveCategory;
+            //Values = CategoryListPage.ActiveCategory;
         }
 
         protected override bool OnBackButtonPressed()
         {
-            // Max 2 mal zurück. DrinkPage braucht Kategorie für Liste also Values hat Category Objekt
-         
-            int child = !Favorite.IsFavorite ? 0 : 1;
-
-            if (Values == null)
+            if (Favorite != null)
             {
-                That.Children[child] = !Favorite.IsFavorite ? new CategoryListPage() as Page : new FavoritePage();
+                Favorite.RemoveFavoriteIcon();
             }
-            else
+            
+            switch (ActivePage)
             {
-                That.Children[child] = (Page)Activator.CreateInstance(Type, Values);
-                if (!Favorite.IsFavorite)
-                {
-                    ((DrinkPage)That.Children[0]).FillWithAllDrinks();
-                }
-                else
-                {
-                    ((DrinkPage)That.Children[1]).FillWithFavoriteDrinks();
-                }
-
+                case 1:
+                    Children[0] = new CategoryListPage();
+                    MasterDetail.SetMainToolbarItem("baseline_add_white_24", CategoryListPage.That.AddCategory);
+                    break;
+                case 2:
+                    NavToDrinkPage();
+                    break;
+                case 3:
+                    CreateDrinkPage.That.AskForSave();
+                    break;
+                  
             }
-            That.CurrentPage = That.Children[child];
+           
+           // That.CurrentPage = That.Children[child];
             That.Children[0].IconImageSource = "Book";
             That.Children[1].IconImageSource = "Star";
             That.Children[2].IconImageSource = "Globe";
   
 
-            Values = null;
+            //Values = null;
             // Events vom Toolbaritem müssen entfernt werden, weil sie mit einer neuen Objektreferenz nicht entfernt werden können
-            if (Favorite != null) { Favorite.DeleteItemEvents(); }
+           // if (Favorite != null) { Favorite.DeleteItemEvents(); }
             
 
             base.OnBackButtonPressed();
@@ -141,15 +133,27 @@ namespace YourDrink
             return true;
         }
 
-        void FavoritePage_Appearing(System.Object sender, System.EventArgs e)
+        void FavoritePage_Appearing(object sender, EventArgs e)
         {
-            ((FavoritePage)sender).FillCategoryList();
+          
+                (sender as DrinkPage).LoadFavorites();
+
+            if (HasLoaded)
+            {
+                MasterDetail.That.SaveAndRemoveItems();
+               
+            }
         }
 
-        void CategoryListPage_Appearing(System.Object sender, System.EventArgs e)
+        void CategoryListPage_Appearing(object sender, EventArgs e)
         {
-            //MasterDetail.ActiveItem.Text = "Rezeptbuch";
-            //MasterDetail.that.Detail.ToolbarItems[0] = null;
+            if (HasLoaded)
+            {
+                MasterDetail.That.AddSavedItems();
+
+            }
         }
+
+ 
     }
 }

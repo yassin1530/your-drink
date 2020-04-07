@@ -23,26 +23,6 @@ namespace YourDrink
 
         }
 
-
-        void CategoryButton_Clicked(System.Object sender, EventArgs e)
-        {
-            var button = (sender as Button);
-
-            int categoryId = Convert.ToInt32(button.ClassId.Substring(button.ClassId.Length - 1));
-
-
-            using (SQLiteConnection conn = new SQLiteConnection(App.DatabasePath))
-            {
-                ActiveCategory = new Category();
-                ActiveCategory = conn.Get<Category>(categoryId);
-
-                MainPage.NavToDrinkPage(ActiveCategory);
-
-            }
-
-
-        }
-
        public async void AddCategory(System.Object sender, System.EventArgs e)
         {
             string input = await DisplayPromptAsync("Neue Kategorie", "", maxLength: 20);
@@ -68,6 +48,20 @@ namespace YourDrink
                                                    ON c.Id = d.CategoryId GROUP BY d.CategoryId").ToArray();
                 
                 CategoryList.ItemsSource = Categorys;
+            }
+        }
+
+        void CategoryList_ItemTapped(System.Object sender, Xamarin.Forms.ItemTappedEventArgs e)
+        {
+            int categoryId = (e.Item as CategoryCount).Id;
+
+            using (SQLiteConnection conn = new SQLiteConnection(App.DatabasePath))
+            {
+               // ActiveCategory = new Category();
+                ActiveCategory = conn.Get<Category>(categoryId);
+
+                MainPage.NavToDrinkPage();
+
             }
         }
     }

@@ -11,8 +11,6 @@
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/obj/Debug/YourDrink.Android.csprojAssemblyReference.cache
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/obj/Debug/_VerifyXamarinAndroidSupportVersions.stamp
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/obj/Debug/stamp/_BuildLibraryImportsCache.stamp
-/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/obj/Debug/resourcepaths.cache
-/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/obj/Debug/resourcecache.stamp
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/obj/Debug/res.flag
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/obj/Debug/flata/93250DB92995539C.stamp
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/obj/Debug/flata/93250DB92995539C.flata
@@ -512,3 +510,8 @@
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/obj/Debug/android/assets/Plugin.Permissions.dll
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/obj/Debug/android/src/crc64435a5ac349fa9fda/ActivityLifecycleContextListener.java
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/obj/Debug/android/src/crc646957603ea1820544/MediaPickerActivity.java
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/bin/Debug/triplebd.yourdrink.aab
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/obj/Debug/YourDrink.Android.csproj.CoreCompileInputs.cache
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/obj/Debug/res/drawable/baseline_add_a_photo_white_48dp.png
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/obj/Debug/android/AndroidManifest.xml
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/obj/Debug/res/drawable/baseline_done_white_24dp.png

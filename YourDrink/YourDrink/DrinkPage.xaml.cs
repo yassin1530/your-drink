@@ -11,8 +11,20 @@ namespace YourDrink
 
     public partial class DrinkPage : ContentPage
     {
-        public Category ActiveCategory { get; set; } 
+        public static Drink ActiveDrink { get; set; }
+        public Category ActiveCategory { get; set; }
         public static DrinkPage That { get; set; }
+
+        public DrinkPage()
+        {
+            InitializeComponent();
+            LoadFavorites();
+
+        }
+        public void LoadFavorites()
+        {
+            DrinkList.ItemsSource = new Favorite().GetFavoriteDrinks();
+        }
 
         public DrinkPage(Category activeCategory)
         {
@@ -24,57 +36,47 @@ namespace YourDrink
             MasterDetail.MainItem.Clicked += AddDrink;
             That = this;
         }
+
+       /* public DrinkPage(List<Drink> drinks)
+        {
+            InitializeComponent();
+
+            DrinkList.ItemsSource = drinks;
+        }*/
+
         public void FillWithAllDrinks()
         {
+           
+
             using (var conn = new SQLiteConnection(App.DatabasePath))
-            {         
-                DrinkList.ItemsSource = conn.Table<Drink>().Where(drink => drink.CategoryId.Equals(ActiveCategory.Id)).ToArray();
+            {//WHERE Drink.CategoryId = {CategoryListPage.ActiveCategory.Id}
+                DrinkList.ItemsSource = conn.Query<DrinkWithImage>($"SELECT * FROM Drink LEFT JOIN DrinkDetail AS dd ON dd.DrinkId = Drink.Id WHERE Drink.CategoryId = {CategoryListPage.ActiveCategory.Id}");
+                 //= conn.Table<Drink>().Where(drink => drink.CategoryId.Equals(CategoryListPage.ActiveCategory.Id)).ToArray();
             }
             Favorite.IsFavorite = false;
         }
-       public void FillWithFavoriteDrinks()
+
+        public void AddDrink(object sender, EventArgs e)
         {
-            using (var conn = new SQLiteConnection(App.DatabasePath))
-            {
-              
-                var drinks = conn.Table<Drink>().Where(drink => drink.CategoryId.Equals(ActiveCategory.Id));
-                var ids = new List<int>();
-
-                foreach(Drink drink in drinks)
-                {
-                    ids.Add(drink.Id);
-                }
-                // Zuerst alle Drinks anhand der Id von Drinks finden und alle nehmen die Favoriten sind
-                var favoriteDrinks = conn.Table<DrinkDetail>().Where(detail => ids.Contains(detail.DrinkId) || detail.Favorite == 1 );
-                // Wenn sie gefunden wurden anhand den Ids der Favoritendrinks die Drinks filtern
-                ids.Clear();
-                foreach(DrinkDetail detail in favoriteDrinks)
-                {
-                    ids.Add(detail.DrinkId);
-                }
-
-                DrinkList.ItemsSource = drinks.Where(drink => ids.Contains(drink.Id)).ToArray();
-            }
-            Favorite.IsFavorite = true;
+            Navigation.PushModalAsync(new CreateDrinkPage(), true);
         }
 
-        void DrinkButton_Clicked(System.Object sender, System.EventArgs e)
+        void DrinkList_ItemTapped(System.Object sender, Xamarin.Forms.ItemTappedEventArgs e)
         {
-            var button = (sender as Button);
-
-            int drinkId = Convert.ToInt32(button.ClassId.Substring(button.ClassId.Length - 1));
+            int drinkId = (e.Item as DrinkWithImage).Id;
 
             using (var conn = new SQLiteConnection(App.DatabasePath))
             {
                 var drink = conn.Get<Drink>(drinkId);
+                // Für Favorite weil CategoryListPage noch nicht aufgerufen wurde
+                if (CategoryListPage.ActiveCategory == null)
+                {
+                    CategoryListPage.ActiveCategory = conn.Get<Category>(category => category.Id == drink.CategoryId);
+                }
 
-                MainPage.NavToDetailPage(drink, Favorite.IsFavorite);
+                ActiveDrink = drink;
+                MainPage.NavToDetailPage();
             }
-
-        }
-        public void AddDrink(object sender, EventArgs e)
-        {
-            Navigation.PushModalAsync(new CreateDrinkPage(), true);
         }
     }
 }

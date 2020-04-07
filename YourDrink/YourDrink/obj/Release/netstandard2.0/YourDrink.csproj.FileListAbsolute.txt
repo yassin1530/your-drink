@@ -19,3 +19,5 @@
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Release/netstandard2.0/YourDrink.pdb
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Release/netstandard2.0/DetailPage.xaml.g.cs
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Release/netstandard2.0/MasterDetail.xaml.g.cs
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Release/netstandard2.0/CreateDrinkPage.xaml.g.cs
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Release/netstandard2.0/YourDrink.csproj.CoreCompileInputs.cache

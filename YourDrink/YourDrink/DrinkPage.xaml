@@ -1,25 +1,26 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="YourDrink.DrinkPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:YourDrink" x:Class="YourDrink.DrinkPage">
+         <ContentPage.Resources>
+        <ResourceDictionary>
+          
+            <local:Base64ImageConverter x:Key="Base64ToImage" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <ListView x:Name="DrinkList" SelectionMode="None" ItemTapped="DrinkButton_Clicked">
+        <ListView x:Name="DrinkList" SelectionMode="None" ItemTapped="DrinkList_ItemTapped" >
              <ListView.ItemTemplate>
 
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.View>
-                           
-                      <Button x:Name="DrinkButton" ClassId="{Binding Id, StringFormat='DrinkButton{0}'}" Clicked="DrinkButton_Clicked" Text="{Binding Name}" BackgroundColor="White"  />
-                           
-                                                            <!--<Grid x:Name="CategoryGrid" ColumnSpacing="0">
-                               <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="2*"/>
-                                </Grid.ColumnDefinitions>
-                             
-                                <Image BackgroundColor="Black" x:Name="DrinkImage" Grid.Column="0"  Source="cocktails" Aspect="AspectFill"/>
-                                <Label x:Name="DrinkLabel" Grid.Column="1"   TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" BackgroundColor="White" Text="{Binding Name}" />
-                                </Grid>-->
-                          
+                       
+                           <Grid  >
+                                     <Image BackgroundColor="LightSlateGray" Aspect="AspectFill" Source="{Binding Image, Converter={x:StaticResource Base64ToImage}}" />
+                      <Label BackgroundColor="Transparent" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="FloralWhite" FontSize="Large" FontAttributes="Bold" x:Name="DrinkButton" Text="{Binding Name}"   />
+                               
+                         
+                           </Grid>
+                    
                         
                         </ViewCell.View>
 

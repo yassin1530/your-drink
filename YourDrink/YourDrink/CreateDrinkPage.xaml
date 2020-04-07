@@ -10,11 +10,11 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout HorizontalOptions="Center">
-                <Entry x:Name="DrinkName" TextColor="Black" FontSize="35" HorizontalTextAlignment="Center" HorizontalOptions="Center" Unfocused="UpdateDrinkName" />
+                <Entry x:Name="DrinkName" Placeholder="Name des Drinks"  TextColor="Black" FontSize="35" HorizontalTextAlignment="Center" HorizontalOptions="Center" TextChanged="SomethingChanged" />
                 <Grid>
-                    <Image   x:Name="DrinkImage"  />
-                    <ImageButton x:Name="SelectImageButton"  BackgroundColor="Red" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Source="Plus_35px" Opacity="0.6"/>
-
+                    <Image   x:Name="DrinkImage" BackgroundColor="LightGray"  />
+                    <ImageButton x:Name="SelectImageButton"  BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Source="baseline_add_a_photo_white_48dp" Opacity="0.6" Clicked="SelectImage" />
+                 
 
 
                 </Grid>
@@ -32,8 +32,8 @@
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
 
-                                        <Entry x:Name="NameEntry" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="End"  Text="{Binding Name}" Placeholder="Zutat" Grid.Column="0" Unfocused="UpdateRecepts" ClassId="{Binding Id, StringFormat='Name{0}'}"/>
-                                        <Entry x:Name="AmountEntry" HorizontalOptions="Center" HorizontalTextAlignment="Center" Text="{Binding Amount, Converter={x:StaticResource FormatAmount}}" Placeholder="Menge" Grid.Column="1" ClassId="{Binding Id, StringFormat='Amount{0}'}" Unfocused="UpdateRecepts" />
+                                        <Entry x:Name="NameEntry" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="End"  Text="{Binding Name}" Placeholder="Zutat" Grid.Column="0" ClassId="{Binding Id, StringFormat='Name{0}'}" TextChanged="SomethingChanged"/>
+                                        <Entry x:Name="AmountEntry" HorizontalOptions="Center" HorizontalTextAlignment="Center" Text="{Binding Amount, Converter={x:StaticResource FormatAmount}}" Placeholder="Menge" Grid.Column="1" ClassId="{Binding Id, StringFormat='Amount{0}'}" TextChanged="SomethingChanged"  />
                                         <ImageButton Source="baseline_remove_circle_red_24dp" BackgroundColor="Transparent" Scale="0.4" Grid.Column="2" Clicked="DeleteRecept" ClassId="{Binding Id}" />
                                     </Grid>
                                 </ViewCell.View>
@@ -45,7 +45,7 @@
                     </ListView.Footer>
                 </ListView>
                 <Label Text="Zubereitung" FontSize="30" HorizontalTextAlignment="Center"  Margin="0, 20, 0, 0" />
-                <Editor x:Name="MakingLabel" Margin="20" AutoSize="TextChanges" Unfocused="UpdateMaking" />
+                <Editor x:Name="MakingLabel" Placeholder="Zubereitung" Margin="20" AutoSize="TextChanges" TextChanged="SomethingChanged" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

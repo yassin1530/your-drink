@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using YourDrink.Model;
 using SQLite;
+using System.Collections.Generic;
 
 namespace YourDrink
 {
@@ -11,20 +12,26 @@ namespace YourDrink
         public static readonly string FilledIcon = "baseline_grade_white_24";
 
         public static bool IsFavorite { get; set; } = false;
-        public ToolbarItem Item { get; set; }
+    
         public DrinkDetail Detail { get; set; }
         public Drink Drink { get; set; }
-   
-        public Favorite(ToolbarItem item, Drink drink)
-        {
-            Item = item;
-            Drink = drink;
+        public static ToolbarItem Item { get; set; } 
 
-            using (var conn = new SQLiteConnection(App.DatabasePath))
+        public Favorite()
+        {
+            Item = new ToolbarItem();
+
+            try
             {
-                
-                Detail = conn.Table<DrinkDetail>().Where(detail => detail.DrinkId == drink.Id).First();
+                Drink = DrinkPage.ActiveDrink;
+
+                using (var conn = new SQLiteConnection(App.DatabasePath))
+                {
+
+                    Detail = conn.Table<DrinkDetail>().Where(detail => detail.DrinkId == Drink.Id).First();
+                }
             }
+            catch { return; }
      
         }
         public void SetIconOnNav()
@@ -39,6 +46,13 @@ namespace YourDrink
             {
                 Item.IconImageSource = BorderIcon;
                 Item.Clicked += SetToFavorite;
+            }
+
+            var items = MasterDetail.That.ToolbarItems;
+
+            if (!items.Contains(Item))
+            {
+                items.Add(Item);
             }
         }
         public void SetToFavorite(object sender, EventArgs e)
@@ -69,10 +83,38 @@ namespace YourDrink
                 conn.Update(Detail);
             }
         }
+        public void RemoveFavoriteIcon()
+        {
+            var items = MasterDetail.That.ToolbarItems;
+
+            items.Remove(Item);
+        }
         public void DeleteItemEvents()
         {
             Item.Clicked -= SetToFavorite;
             Item.Clicked -= SetToNonFavorite;
         }
+
+        public List<DrinkWithImage> GetFavoriteDrinks()
+        {
+            using (var conn = new SQLiteConnection(App.DatabasePath))
+            {
+                var drinks = conn.Query<DrinkWithImage>($@"SELECT * FROM DrinkDetail AS dd
+                                                        LEFT JOIN Drink ON dd.DrinkId = Drink.Id WHERE dd.Favorite = 1 ");
+                //var favorites = conn.Table<DrinkDetail>().Where(detail => detail.Favorite == 1);
+
+                //var drinks = new List<Drink>();
+
+               /* foreach(var favorite in favorites)
+                {
+                    var drink = conn.Get<Drink>(d => d.Id == favorite.DrinkId);
+
+                    drinks.Add(drink);
+                }*/
+
+                return drinks;
+            }
+        }
+        
     }
 }

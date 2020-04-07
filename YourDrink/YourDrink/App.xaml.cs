@@ -9,6 +9,7 @@ namespace YourDrink
     {
         public static string DatabasePath = String.Empty;
 
+
         public App()
         {
             InitializeComponent();
@@ -20,6 +21,8 @@ namespace YourDrink
             InitializeComponent();
 
             DatabasePath = databasePath;
+
+      
 
             MainPage = new MasterDetail();
 

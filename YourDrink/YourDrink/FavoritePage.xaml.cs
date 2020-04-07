@@ -10,10 +10,15 @@ namespace YourDrink
     {
         public FavoritePage()
         {
-            InitializeComponent();
+            //InitializeComponent();
 
-            FillCategoryList();
-      
+            // FillCategoryList();
+           
+        
+        }
+        public void Activate()
+        {
+            //MainPage.NavToDrinkPage(true, new Favorite().GetFavoriteDrinks());
         }
         public void FillCategoryList()
         {
@@ -52,7 +57,7 @@ namespace YourDrink
       
                var ActiveCategory = conn.Get<Category>(categoryId);
 
-                MainPage.NavToDrinkPage(ActiveCategory, true);
+                MainPage.NavToDrinkPage(true);
 
             }
         }

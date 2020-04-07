@@ -6,7 +6,6 @@
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/CategoryListPage.xaml.g.cs
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/DetailPage.xaml.g.cs
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/DrinkPage.xaml.g.cs
-/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/DrinkTabPage.xaml.g.cs
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/FavoritePage.xaml.g.cs
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/MainPage.xaml.g.cs
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/MasterDetail.xaml.g.cs
@@ -20,3 +19,4 @@
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/YourDrink.pdb
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/YourDrink.csprojAssemblyReference.cache
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/CreateDrinkPage.xaml.g.cs
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/obj/Debug/netstandard2.0/YourDrink.csproj.CoreCompileInputs.cache
