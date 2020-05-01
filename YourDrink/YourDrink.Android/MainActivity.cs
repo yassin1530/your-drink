@@ -12,6 +12,7 @@ using Xamarin.Forms;
 using Android.Content.Res;
 using Android.Content;
 using System.Threading.Tasks;
+using System.Net;
 
 namespace YourDrink.Droid
 {
@@ -24,6 +25,7 @@ namespace YourDrink.Droid
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            //ServicePointManager.ServerCertificateValidationCallback += (o, cert, chain, errors) => true;
 
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;

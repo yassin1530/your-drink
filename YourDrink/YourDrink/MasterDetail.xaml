@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <MasterDetailPage  MasterBehavior="Split" x:Name="masterDetailPage"  xmlns="http://xamarin.com/schemas/2014/forms" xmlns:local="clr-namespace:YourDrink" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="YourDrink.MasterDetail">
 
-    <MasterDetailPage.ToolbarItems>
+    <!--<MasterDetailPage.ToolbarItems>
         <ToolbarItem x:Name="MainToolbarItem" ClassId="Main" IconImageSource="baseline_add_white_24" Clicked="AddCategory"/>
-    </MasterDetailPage.ToolbarItems>
+    </MasterDetailPage.ToolbarItems>-->
     <MasterDetailPage.Master>
         <ContentPage Title="Junk">
             <StackLayout VerticalOptions="Start">

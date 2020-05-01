@@ -22,6 +22,7 @@ namespace YourDrink
             InitializeComponent();
             Drink = drink;
             That = this;
+            new Favorite(FavoriteIcon).SetIconOnNav();
             //var items = MasterDetail.That.ToolbarItems;
             //var item = new ToolbarItem() { IconImageSource = "Settings" };
             //item.Clicked += OpenForChange;

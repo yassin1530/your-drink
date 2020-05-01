@@ -17,9 +17,9 @@ namespace YourDrink
         public Drink Drink { get; set; }
         public static ToolbarItem Item { get; set; } 
 
-        public Favorite()
+        public Favorite(ToolbarItem item)
         {
-            Item = new ToolbarItem();
+            Item = item;
 
             try
             {
@@ -48,12 +48,7 @@ namespace YourDrink
                 Item.Clicked += SetToFavorite;
             }
 
-            var items = MasterDetail.That.ToolbarItems;
-
-            if (!items.Contains(Item))
-            {
-                items.Add(Item);
-            }
+        
         }
         public void SetToFavorite(object sender, EventArgs e)
         {
@@ -95,7 +90,7 @@ namespace YourDrink
             Item.Clicked -= SetToNonFavorite;
         }
 
-        public List<DrinkWithImage> GetFavoriteDrinks()
+        public static List<DrinkWithImage> GetFavoriteDrinks()
         {
             using (var conn = new SQLiteConnection(App.DatabasePath))
             {

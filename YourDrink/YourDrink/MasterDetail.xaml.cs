@@ -36,7 +36,7 @@ namespace YourDrink
             
             
             That = this;
-            MainItem = That.MainToolbarItem;
+           // MainItem = That.MainToolbarItem;
         }
 
         public void OpenSideBar()
@@ -44,12 +44,12 @@ namespace YourDrink
             masterDetailPage.IsPresented = true;
         }
 
-        public static void AddCategory(System.Object sender, System.EventArgs e)
+        /*public static void AddCategory(System.Object sender, System.EventArgs e)
         {
             CategoryListPage.That.AddCategory(sender, e);
-        }
+        }*/
 
-        public static void SetMainToolbarItem(string iconImageSource, EventHandler function)
+       /* public static void SetMainToolbarItem(string iconImageSource, EventHandler function)
         {
             That.MainToolbarItem.IconImageSource = iconImageSource;
 
@@ -61,31 +61,27 @@ namespace YourDrink
             }
 
             That.MainToolbarItem.Clicked += function;
-        }
+        }*/
 
-        public void SaveAndRemoveItems()
+       /* public async void SaveAndRemoveItems()
         {
-          
-            foreach(var item in ToolbarItems)
+
+            foreach (var item in ToolbarItems)
             {
-                Items.Add(item);
+                item.BindingContext = null; // This is to address the BindingContext issue; not related to this topic
+                Items.Add(item); // items is just a List<ToolbarItem> type
             }
-            
-        
+
             ToolbarItems.Clear();
-            
+
         }
 
         public void AddSavedItems()
         {
-         
-            foreach(var item in Items)
-            {
-                ToolbarItems.Add(item);
-            }
-
-            Items.Clear();
-        }
+           
+        
+           
+        }*/
 
     }
 }

@@ -1,18 +1,22 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:YourDrink" x:Class="YourDrink.DrinkPage">
-         <ContentPage.Resources>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:rd="clr-namespace:YourDrink.Redefinitions" xmlns:local="clr-namespace:YourDrink" x:Class="YourDrink.DrinkPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="baseline_add_white_24" Clicked="AddDrink"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
         <ResourceDictionary>
           
             <local:Base64ImageConverter x:Key="Base64ToImage" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <ListView x:Name="DrinkList" SelectionMode="None" ItemTapped="DrinkList_ItemTapped" >
+        <ListView x:Name="DrinkList" SelectionMode="None" >
              <ListView.ItemTemplate>
 
                 <DataTemplate>
-                    <ViewCell>
-                        <ViewCell.View>
+                    <rd:CustomViewCell ItemClicked="DrinkList_ItemTapped" ItemOnHold="AskForDelete">
+                        <rd:CustomViewCell.View>
                        
                            <Grid  >
                                      <Image BackgroundColor="LightSlateGray" Aspect="AspectFill" Source="{Binding Image, Converter={x:StaticResource Base64ToImage}}" />
@@ -22,9 +26,9 @@
                            </Grid>
                     
                         
-                        </ViewCell.View>
+                        </rd:CustomViewCell.View>
 
-                    </ViewCell>
+                    </rd:CustomViewCell>
 
                 </DataTemplate>
 

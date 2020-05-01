@@ -1,44 +1,52 @@
 ﻿<Properties StartupConfiguration="{5927F3FF-EC9A-47E8-86C4-70E4BA6E7490}|Default">
-  <MonoDevelop.Ide.ItemProperties.YourDrink.iOS FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="YourDrink/MasterDetail.xaml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="YourDrink/FavoritePage.xaml.cs">
     <Files>
-      <File FileName="YourDrink/MainPage.xaml.cs" Line="152" Column="51" />
-      <File FileName="YourDrink/Favorite.cs" Line="103" Column="103" />
-      <File FileName="YourDrink/DrinkPage.xaml.cs" Line="58" Column="1" />
-      <File FileName="YourDrink/CreateDrinkPage.xaml.cs" Line="82" Column="10" />
-      <File FileName="YourDrink/CreateDrinkPage.xaml" Line="20" Column="24" />
-      <File FileName="YourDrink/FavoritePage.xaml" Line="24" Column="36" />
-      <File FileName="YourDrink/FavoritePage.xaml.cs" Line="21" Column="15" />
+      <File FileName="YourDrink/Redefinitions/CustomViewCell.cs" Line="45" Column="7" IsPinned="True" />
+      <File FileName="YourDrink/CategoryListPage.xaml" />
+      <File FileName="YourDrink/CategoryListPage.xaml.cs" />
+      <File FileName="YourDrink.Android/CustomViewCellRenderer.cs" />
+      <File FileName="YourDrink/Base64ImageConverter.cs" />
+      <File FileName="YourDrink.Android/CustomListViewRenderer.cs" />
+      <File FileName="YourDrink/DrinkPage.xaml" />
+      <File FileName="YourDrink/DrinkPage.xaml.cs" />
+      <File FileName="YourDrink/MainPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="YourDrink/MasterDetail.xaml.cs" Line="1" Column="1" />
+      <File FileName="YourDrink/MasterDetail.xaml" />
       <File FileName="YourDrink/MainPage.xaml" />
-      <File FileName="YourDrink/CategoryListPage.xaml.cs" Line="60" Column="18" />
-      <File FileName="YourDrink/mono_crash.115869ea88.0.json" />
-      <File FileName="YourDrink/DetailPage.xaml" Line="3" Column="1" />
-      <File FileName="YourDrink/MasterDetail.xaml.cs" Line="77" Column="1" />
-      <File FileName="YourDrink/MasterDetail.xaml" Line="27" Column="49" />
-      <File FileName="YourDrink/DrinkPage.xaml" Line="18" Column="77" />
-      <File FileName="YourDrink/Model/Drink.cs" Line="7" Column="1" />
-      <File FileName="YourDrink/Model/DrinkDetail.cs" Line="17" Column="9" />
-      <File FileName="YourDrink/DetailPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="YourDrink/Base64ImageConverter.cs" Line="1" Column="1" />
-      <File FileName="YourDrink/Model/DrinkWithImage.cs" Line="16" Column="42" />
-      <File FileName="YourDrink.Android/FileAccessHelper.cs" Line="22" Column="8" />
-      <File FileName="YourDrink/CategoryListPage.xaml" Line="28" Column="39" />
+      <File FileName="YourDrink/DetailPage.xaml.cs" />
+      <File FileName="YourDrink/DetailPage.xaml" />
+      <File FileName="YourDrink/Favorite.cs" />
+      <File FileName="YourDrink/CreateDrinkPage.xaml.cs" Line="85" Column="52" />
+      <File FileName="YourDrink/Model/Category.cs" />
+      <File FileName="YourDrink/Model/DrinkWithImage.cs" />
+      <File FileName="YourDrink.Android/Resources/drawable/baseline_grade_white_24.png" />
+      <File FileName="YourDrink/PostPage.xaml" Line="4" Column="20" />
+      <File FileName="YourDrink/Model/Post.cs" />
+      <File FileName="YourDrink/PostPage.xaml.cs" Line="20" Column="27" />
+      <File FileName="YourDrink.Android/MainActivity.cs" />
+      <File FileName="YourDrink/FormatAmount.cs" Line="1" Column="1" />
+      <File FileName="YourDrink/FavoritePage.xaml.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="YourDrink" expanded="True">
             <Node name="YourDrink" expanded="True">
-              <Node name="Dependencies" expanded="True" />
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
               <Node name="Model" expanded="True" />
+              <Node name="Redefinitions" expanded="True" />
               <Node name="App.xaml" expanded="True" />
               <Node name="CategoryListPage.xaml" expanded="True" />
               <Node name="CreateDrinkPage.xaml" expanded="True" />
               <Node name="DetailPage.xaml" expanded="True" />
               <Node name="DrinkPage.xaml" expanded="True" />
-              <Node name="FavoritePage.xaml" expanded="True" />
+              <Node name="FavoritePage.xaml" expanded="True">
+                <Node name="FavoritePage.xaml.cs" selected="True" />
+              </Node>
               <Node name="MainPage.xaml" expanded="True" />
-              <Node name="MasterDetail.xaml" expanded="True" selected="True" />
+              <Node name="MasterDetail.xaml" expanded="True" />
               <Node name="PostPage.xaml" expanded="True" />
             </Node>
             <Node name="YourDrink.Android" expanded="True">
@@ -53,34 +61,14 @@
           </Node>
         </State>
       </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State>
-          <Value>Categorys</Value>
-          <Value>abc.ToArray()</Value>
-          <Value>conn.Table&lt;global::YourDrink.Model.Category&gt;().ToArray()</Value>
-          <Value>item.IconImageSource</Value>
-          <Value>That.MainToolbarItem.IconImageSource</Value>
-          <Value>ReceptList.GetChildElements(0)</Value>
-          <Value>ReceptList.FindByName&lt;global::Xamarin.Forms.Entry&gt;("NameEntry")</Value>
-          <Value>SelectImageButton.HeightRequest</Value>
-          <Value>DrinkImage.Source</Value>
-          <Value>stream</Value>
-          <Value>DrinkImage.BindingContext</Value>
-          <Value>this.ToolbarItems.Where(abc =&gt; abc.Id.Equals("MainToolbarItem"))</Value>
-          <Value>ToolbarItems</Value>
-          <Value>MasterDetail.That.ToolbarItems</Value>
-          <Value>Items</Value>
-          <Value>That.ToolbarItems</Value>
-          <Value>MasterDetail.That.ToolbarItems</Value>
-          <Value>CurrentPage.TabIndex</Value>
-          <Value>(sender as global::Xamarin.Forms.ListView).ItemTapped</Value>
-        </State>
-      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.YourDrink.Android AndroidDesignerPreferredTheme="Theme.AppCompat.Light.NoActionBar" AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.Android_Accelerated_Oreo" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <Debugger.DebugSourceFolders>
+    <String>/Users/preyde/Library/Caches/VisualStudio/8.0/Symbols/mono/mono/c0c5c78e2bdbdbf7a70ae10b0a698708f1f2edbe</String>
+  </Debugger.DebugSourceFolders>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

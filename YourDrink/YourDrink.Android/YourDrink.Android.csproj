@@ -64,6 +64,8 @@
     <Compile Include="FileAccessHelper.cs" />
     <Compile Include="MessageToast.cs" />
     <Compile Include="ImageSelector.cs" />
+    <Compile Include="CustomListViewRenderer.cs" />
+    <Compile Include="CustomViewCellRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -177,6 +179,14 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\baseline_done_white_24dp.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\baseline_thumb_up_gray_18dp.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\baseline_mode_comment_gray_18dp.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

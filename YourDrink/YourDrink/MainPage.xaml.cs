@@ -47,7 +47,7 @@ namespace YourDrink
             if (!isFavorite)
             {
                 ((DrinkPage)That.Children[child]).FillWithAllDrinks();
-                MasterDetail.SetMainToolbarItem("baseline_add_white_24", DrinkPage.That.AddDrink);
+               // MasterDetail.SetMainToolbarItem("baseline_add_white_24", DrinkPage.That.AddDrink);
             }
 
            
@@ -61,7 +61,6 @@ namespace YourDrink
             // For Back Navigation
             //Type = That.Children[child].GetType();
 
-            var item = new ToolbarItem();
 
        
             That.Children[child] = new DetailPage(DrinkPage.ActiveDrink)
@@ -71,10 +70,10 @@ namespace YourDrink
             That.CurrentPage = That.Children[child];
             //Values = CategoryListPage.ActiveCategory;
 
-            Favorite = new Favorite();
-            Favorite.SetIconOnNav();
+            //Favorite = new Favorite();
+           // Favorite.SetIconOnNav();
 
-            MasterDetail.SetMainToolbarItem("baseline_create_white_24dp", DetailPage.That.OpenForChange);
+           // MasterDetail.SetMainToolbarItem("baseline_create_white_24dp", DetailPage.That.OpenForChange);
 
         }
 
@@ -85,7 +84,7 @@ namespace YourDrink
             // For Back Navigation
            // Type = That.Children[child].GetType();
 
-            MasterDetail.SetMainToolbarItem("baseline_done_white_24dp", CreateDrinkPage.AcceptPressed);
+          //  MasterDetail.SetMainToolbarItem("baseline_done_white_24dp", CreateDrinkPage.AcceptPressed);
 
             That.Children[child] = new CreateDrinkPage(DrinkPage.ActiveDrink)
             {
@@ -97,16 +96,16 @@ namespace YourDrink
 
         protected override bool OnBackButtonPressed()
         {
-            if (Favorite != null)
+           /* if (Favorite != null)
             {
                 Favorite.RemoveFavoriteIcon();
-            }
+            }*/
             
             switch (ActivePage)
             {
                 case 1:
                     Children[0] = new CategoryListPage();
-                    MasterDetail.SetMainToolbarItem("baseline_add_white_24", CategoryListPage.That.AddCategory);
+                   // MasterDetail.SetMainToolbarItem("baseline_add_white_24", CategoryListPage.That.AddCategory);
                     break;
                 case 2:
                     NavToDrinkPage();
@@ -138,20 +137,20 @@ namespace YourDrink
           
                 (sender as DrinkPage).LoadFavorites();
 
-            if (HasLoaded)
+           /* if (HasLoaded)
             {
                 MasterDetail.That.SaveAndRemoveItems();
                
-            }
+            }*/
         }
 
         void CategoryListPage_Appearing(object sender, EventArgs e)
         {
-            if (HasLoaded)
+           /* if (HasLoaded)
             {
                 MasterDetail.That.AddSavedItems();
 
-            }
+            }*/
         }
 
  

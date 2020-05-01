@@ -5,6 +5,7 @@ using SQLite;
 using System.Linq;
 
 using Xamarin.Forms;
+using YourDrink.Redefinitions;
 
 namespace YourDrink
 {
@@ -14,16 +15,20 @@ namespace YourDrink
         public static Drink ActiveDrink { get; set; }
         public Category ActiveCategory { get; set; }
         public static DrinkPage That { get; set; }
+        public bool IsFavorite { get; set; }
+        public static DrinkPage FavoritePage { get; set; }
 
         public DrinkPage()
         {
             InitializeComponent();
             LoadFavorites();
-
+            IsFavorite = true;
+            FavoritePage = this;
+            ToolbarItems.Clear();
         }
         public void LoadFavorites()
         {
-            DrinkList.ItemsSource = new Favorite().GetFavoriteDrinks();
+            DrinkList.ItemsSource = Favorite.GetFavoriteDrinks();
         }
 
         public DrinkPage(Category activeCategory)
@@ -32,28 +37,29 @@ namespace YourDrink
 
             ActiveCategory = activeCategory;
 
-            MasterDetail.MainItem.Clicked -= MasterDetail.AddCategory;
-            MasterDetail.MainItem.Clicked += AddDrink;
+           // MasterDetail.MainItem.Clicked -= MasterDetail.AddCategory;
+           // MasterDetail.MainItem.Clicked += AddDrink;
             That = this;
+            IsFavorite = false;
         }
 
-       /* public DrinkPage(List<Drink> drinks)
-        {
-            InitializeComponent();
+        /* public DrinkPage(List<Drink> drinks)
+         {
+             InitializeComponent();
 
-            DrinkList.ItemsSource = drinks;
-        }*/
+             DrinkList.ItemsSource = drinks;
+         }*/
 
         public void FillWithAllDrinks()
         {
-           
+
 
             using (var conn = new SQLiteConnection(App.DatabasePath))
             {//WHERE Drink.CategoryId = {CategoryListPage.ActiveCategory.Id}
-                DrinkList.ItemsSource = conn.Query<DrinkWithImage>($"SELECT * FROM Drink LEFT JOIN DrinkDetail AS dd ON dd.DrinkId = Drink.Id WHERE Drink.CategoryId = {CategoryListPage.ActiveCategory.Id}");
-                 //= conn.Table<Drink>().Where(drink => drink.CategoryId.Equals(CategoryListPage.ActiveCategory.Id)).ToArray();
+                DrinkList.ItemsSource = conn.Query<DrinkWithImage>($"SELECT Drink.*, dd.Image FROM Drink LEFT JOIN DrinkDetail AS dd ON dd.DrinkId = Drink.Id WHERE Drink.CategoryId = {CategoryListPage.ActiveCategory.Id}");
+                //= conn.Table<Drink>().Where(drink => drink.CategoryId.Equals(CategoryListPage.ActiveCategory.Id)).ToArray();
             }
-            Favorite.IsFavorite = false;
+
         }
 
         public void AddDrink(object sender, EventArgs e)
@@ -61,9 +67,9 @@ namespace YourDrink
             Navigation.PushModalAsync(new CreateDrinkPage(), true);
         }
 
-        void DrinkList_ItemTapped(System.Object sender, Xamarin.Forms.ItemTappedEventArgs e)
+        void DrinkList_ItemTapped(System.Object sender, EventArgs e)
         {
-            int drinkId = (e.Item as DrinkWithImage).Id;
+            int drinkId = ((DrinkWithImage)CustomViewCell.Binding).Id;
 
             using (var conn = new SQLiteConnection(App.DatabasePath))
             {
@@ -77,6 +83,37 @@ namespace YourDrink
                 ActiveDrink = drink;
                 MainPage.NavToDetailPage();
             }
+        }
+        public void AskForDelete(object sender, System.Timers.ElapsedEventArgs e)//
+        {
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                string drinkName = ((DrinkWithImage)CustomViewCell.Binding).Name;
+                var answer = await DisplayActionSheet($"{drinkName} löschen?", "Abbrechen", "Ok");
+
+                if (answer == "Ok")
+                {
+                    int drinkId = ((DrinkWithImage)CustomViewCell.Binding).Id;
+
+                    using (var conn = new SQLiteConnection(App.DatabasePath))
+                    {
+                        conn.Delete<Drink>(drinkId);
+                        conn.Query<DrinkDetail>($"DELETE FROM DrinkDetail WHERE DrinkId = {drinkId}");
+                        
+                        if (!IsFavorite)
+                        {
+                            FillWithAllDrinks();
+                        }
+                        else
+                        {
+                            LoadFavorites();
+                        }
+                    }
+
+                }
+            });
+
+
         }
     }
 }

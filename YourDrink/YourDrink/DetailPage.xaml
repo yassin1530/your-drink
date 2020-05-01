@@ -1,11 +1,17 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="YourDrink.DetailPage" xmlns:local="clr-namespace:YourDrink">
-     <ContentPage.Resources>
+
+    <ContentPage.Resources>
         <ResourceDictionary>
             <local:FormatAmount x:Key="FormatAmount" />
             <local:Base64ImageConverter x:Key="Base64ToImage" />
         </ResourceDictionary>
     </ContentPage.Resources>
+
+        <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="baseline_create_white_24dp" Clicked="OpenForChange"/>
+       <ToolbarItem x:Name="FavoriteIcon"/>
+    </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
         <ScrollView>
