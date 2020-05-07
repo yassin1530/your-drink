@@ -10,8 +10,8 @@ namespace YourDrink
 
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-
-            return (float)value == 0 ? string.Empty : value;
+            return value;
+           // return (float)value == 0 ? string.Empty : value;
         }
 
 
@@ -19,8 +19,8 @@ namespace YourDrink
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-
-            return (string)value != "" ? System.Convert.ToDecimal(value) : value;
+            return value;
+            //return (string)value != "" ? System.Convert.ToDecimal(value) : value;
         }
 
     }

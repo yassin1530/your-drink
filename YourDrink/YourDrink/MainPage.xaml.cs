@@ -77,19 +77,17 @@ namespace YourDrink
 
         }
 
-        public static void NavToCreateDrinkPage(bool isFavorite = false)
+        public static void NavToCreateDrinkPage(bool isNew = false, bool isFavorite = false)
         {
             ActivePage = 3;
             int child = !isFavorite ? 0 : 1;
             // For Back Navigation
-           // Type = That.Children[child].GetType();
+            // Type = That.Children[child].GetType();
 
-          //  MasterDetail.SetMainToolbarItem("baseline_done_white_24dp", CreateDrinkPage.AcceptPressed);
+            //  MasterDetail.SetMainToolbarItem("baseline_done_white_24dp", CreateDrinkPage.AcceptPressed);
 
-            That.Children[child] = new CreateDrinkPage(DrinkPage.ActiveDrink)
-            {
-                IconImageSource = !isFavorite ? "Book" : "Star"
-            };
+            That.Children[child] = isNew ? new CreateDrinkPage() : new CreateDrinkPage(DrinkPage.ActiveDrink);
+            That.Children[child].IconImageSource = !isFavorite ? "Book" : "Star";
             That.CurrentPage = That.Children[child];
             //Values = CategoryListPage.ActiveCategory;
         }

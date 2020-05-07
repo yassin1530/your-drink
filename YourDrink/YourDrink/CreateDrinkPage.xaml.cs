@@ -26,6 +26,23 @@ namespace YourDrink
 
             InitializeComponent();
 
+            using(var conn = new SQLiteConnection(App.DatabasePath))
+            {
+                var drinkId = conn.Query<Drink>("SELECT Id FROM Drink ORDER BY Id DESC LIMIT 0,1");
+                var detailId = conn.Query<DrinkDetail>("SELECT Id FROM Drink ORDER BY id DESC LIMIT 0,1");
+
+                int newDetailId = detailId[0].Id + 1;
+                int newId = drinkId[0].Id + 1;
+
+                conn.Insert(new DrinkDetail() { Id = newDetailId, DrinkId = newId });
+                conn.Insert(new Drink() { Id = newId, Name = "" });
+                Drink = conn.Get<Drink>(newId);
+            }
+
+            DrinkPage.ActiveDrink = Drink;
+
+            DrinkDetail = new DrinkDetail();
+            DrinkDetail.Favorite = 1;
             SetupIsReady = false;
             That = this;
   
@@ -205,6 +222,7 @@ namespace YourDrink
                 Drink.Name = That.DrinkName.Text;
                 conn.Update(Drink);
 
+               
                 That.DrinkDetail.Making = That.MakingLabel.Text;
                 conn.Update(That.DrinkDetail);
 

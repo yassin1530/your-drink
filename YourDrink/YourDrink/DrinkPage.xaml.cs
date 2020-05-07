@@ -64,7 +64,8 @@ namespace YourDrink
 
         public void AddDrink(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new CreateDrinkPage(), true);
+            //Navigation.PushModalAsync(new CreateDrinkPage(), true);
+            MainPage.NavToCreateDrinkPage(true);
         }
 
         void DrinkList_ItemTapped(System.Object sender, EventArgs e)
