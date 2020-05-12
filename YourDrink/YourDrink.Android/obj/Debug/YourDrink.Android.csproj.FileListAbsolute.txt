@@ -518,3 +518,4 @@
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/obj/Debug/stamp/_ResolveLibraryProjectImports.stamp
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/obj/Debug/res/drawable/baseline_thumb_up_gray_18dp.png
 /Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/obj/Debug/res/drawable/baseline_mode_comment_gray_18dp.png
+/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink.Android/obj/Debug/res/drawable/zitrone.png

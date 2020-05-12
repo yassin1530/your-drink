@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:rd="clr-namespace:YourDrink.Redefinitions"
-          xmlns:abc="clr-namespace:MultiGestureViewPlugin;assembly=MultiGestureViewPlugin" xmlns:local="clr-namespace:YourDrink" x:Class="YourDrink.CategoryListPage">
+           xmlns:local="clr-namespace:YourDrink" x:Class="YourDrink.CategoryListPage">
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="baseline_add_white_24" Clicked="AddCategory"/>
     </ContentPage.ToolbarItems>
@@ -9,59 +9,56 @@
             <local:Base64ImageConverter x:Key="Base64ToImage" />
         </ResourceDictionary>
     </ContentPage.Resources>
-   
+
     <ContentPage.Content>
-   
-         
-        
-       
-                    
-           <StackLayout>
-             
-                 <ListView  x:Name="CategoryList"  SelectionMode="None" >
-    
-                
-                    <ListView.ItemTemplate>
-                      
-                        <DataTemplate>
-                           
- 
-                          
-                            <rd:CustomViewCell ClassId="{Binding Id}" ItemClicked="ItemTapped" ItemOnHold="AskForDelete" >
-                               <rd:CustomViewCell.View>
-                                   
-                                  
-                                    <Grid BackgroundColor="White" ColumnSpacing="0" Padding="0" >
-                                        
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="2*"/>
-                                            <ColumnDefinition Width="4*"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="*"/>
-                                        </Grid.ColumnDefinitions>
-                                       
-                                        <Image  Source="{Binding Icon, Converter={StaticResource Base64ToImage}}"/>
-                                        <Label Grid.Column="1" VerticalTextAlignment="Center" FontSize="Medium" TextColor="#4c5052" HorizontalTextAlignment="Start" Text="{Binding Name}"  />
 
-                                        <Label x:Name="CountLabel" Grid.Column="2" Text="{Binding Count}" BackgroundColor="Transparent" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="#808080" Margin="0, 0, -10, 0" FontSize="15" />
-                                        <Image Grid.Column="3" Source="baseline_keyboard_arrow_right_gray_36"  BackgroundColor="Transparent" Scale="0.5" />
-                                    </Grid>
-                            
-                                </rd:CustomViewCell.View>
-                                    
-                            </rd:CustomViewCell>
-                                
-                             
-                        </DataTemplate>
 
-                    </ListView.ItemTemplate>
-        
-               </ListView>
+        <StackLayout>
 
-            </StackLayout>
-   
+            <ListView  x:Name="CategoryList"  SelectionMode="None" >
 
-               
+
+                <ListView.ItemTemplate>
+
+                    <DataTemplate>
+
+
+
+                        <rd:CustomViewCell ClassId="{Binding Id}" ItemClicked="ItemTapped" ItemOnHold="AskForDelete" >
+                            <rd:CustomViewCell.View>
+
+
+                                <Grid BackgroundColor="White" ColumnSpacing="0" Padding="0" >
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="4*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Scale="0.8"   Source="{Binding Icon, Converter={StaticResource Base64ToImage}}"/>
+                                    <Label Grid.Column="1" VerticalTextAlignment="Center" FontSize="Medium" TextColor="#4c5052" HorizontalTextAlignment="Start" Text="{Binding Name}"  />
+
+                                    <Label x:Name="CountLabel" Grid.Column="2" Text="{Binding Count}" BackgroundColor="Transparent" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="#808080" Margin="0, 0, -10, 0" FontSize="15" />
+                                    <Image Grid.Column="3" Source="baseline_keyboard_arrow_right_gray_36"  BackgroundColor="Transparent" Scale="0.5" />
+                                </Grid>
+
+                            </rd:CustomViewCell.View>
+
+                        </rd:CustomViewCell>
+
+
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+
+            </ListView>
+
+        </StackLayout>
+
+
+
     </ContentPage.Content>
 
 </ContentPage>

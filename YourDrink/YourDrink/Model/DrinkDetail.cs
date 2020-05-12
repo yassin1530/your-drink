@@ -4,7 +4,7 @@ namespace YourDrink.Model
 {
     public class DrinkDetail
     {
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey]
         public int Id { get; set; }
 
         [NotNull]

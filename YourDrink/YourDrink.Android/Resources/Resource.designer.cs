@@ -5868,6 +5868,9 @@ namespace YourDrink.Droid
 			// aapt resource value: 0x7F07008E
 			public const int tooltip_frame_light = 2131165326;
 			
+			// aapt resource value: 0x7F07008F
+			public const int zitrone = 2131165327;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

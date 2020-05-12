@@ -43,14 +43,14 @@ namespace YourDrink
             That.Children[child] = child == 0 ? new DrinkPage(CategoryListPage.ActiveCategory) : null;
             That.Children[child].IconImageSource = !isFavorite ? "Book" : "Star";
             That.CurrentPage = That.Children[child];
-
+            That.Children[0].Title = "Rezeptbuch";
             if (!isFavorite)
             {
                 ((DrinkPage)That.Children[child]).FillWithAllDrinks();
                // MasterDetail.SetMainToolbarItem("baseline_add_white_24", DrinkPage.That.AddDrink);
             }
+    
 
-           
 
         }
 
@@ -68,12 +68,13 @@ namespace YourDrink
                 IconImageSource = !isFavorite ? "Book" : "Star"
             };
             That.CurrentPage = That.Children[child];
+            That.Children[0].Title = "Rezeptbuch";
             //Values = CategoryListPage.ActiveCategory;
 
             //Favorite = new Favorite();
-           // Favorite.SetIconOnNav();
+            // Favorite.SetIconOnNav();
 
-           // MasterDetail.SetMainToolbarItem("baseline_create_white_24dp", DetailPage.That.OpenForChange);
+            // MasterDetail.SetMainToolbarItem("baseline_create_white_24dp", DetailPage.That.OpenForChange);
 
         }
 
@@ -89,6 +90,7 @@ namespace YourDrink
             That.Children[child] = isNew ? new CreateDrinkPage() : new CreateDrinkPage(DrinkPage.ActiveDrink);
             That.Children[child].IconImageSource = !isFavorite ? "Book" : "Star";
             That.CurrentPage = That.Children[child];
+            That.Children[0].Title = "Rezeptbuch";
             //Values = CategoryListPage.ActiveCategory;
         }
 
@@ -116,6 +118,7 @@ namespace YourDrink
            
            // That.CurrentPage = That.Children[child];
             That.Children[0].IconImageSource = "Book";
+            That.Children[0].Title = "Rezeptbuch";
             That.Children[1].IconImageSource = "Star";
             That.Children[2].IconImageSource = "Globe";
   

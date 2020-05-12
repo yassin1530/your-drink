@@ -26,6 +26,7 @@ namespace YourDrink
 
             InitializeComponent();
 
+            ReceptsToRemove.Clear();
             using(var conn = new SQLiteConnection(App.DatabasePath))
             {
                 var drinkId = conn.Query<Drink>("SELECT Id FROM Drink ORDER BY Id DESC LIMIT 0,1");
@@ -35,19 +36,26 @@ namespace YourDrink
                 int newId = drinkId[0].Id + 1;
 
                 conn.Insert(new DrinkDetail() { Id = newDetailId, DrinkId = newId });
-                conn.Insert(new Drink() { Id = newId, Name = "" });
+                conn.Insert(new Drink() { Id = newId, CategoryId = CategoryListPage.ActiveCategory.Id, Name = "" });
                 Drink = conn.Get<Drink>(newId);
+                DrinkDetail = conn.Get<DrinkDetail>(newDetailId);
             }
 
             DrinkPage.ActiveDrink = Drink;
 
-            DrinkDetail = new DrinkDetail();
+     
             DrinkDetail.Favorite = 1;
+
+            DrinkImage.BindingContext = DrinkDetail;
             SetupIsReady = false;
             That = this;
   
             SomethingGotChanged = false;
 
+            ReceptList.ItemsSource = Collection;
+
+            // Größe anpassen damit man nicht scrollen muss : Letzter Summand = Button
+            ReceptList.HeightRequest = Collection.Count * ReceptList.RowHeight + 110;
             SetTimer();
         }
 
@@ -55,6 +63,7 @@ namespace YourDrink
         {
             InitializeComponent();
 
+            ReceptsToRemove.Clear();
             SetupIsReady = false;
 
             Drink = drink;
@@ -101,10 +110,11 @@ namespace YourDrink
         {
             using (var conn = new SQLiteConnection(App.DatabasePath))
             {
-                conn.Insert(new Recept() { Name = String.Empty, DrinkId = Drink.Id });
+                conn.UpdateAll(Collection);
+                 conn.Insert(new Recept() { Name = String.Empty, DrinkId = Drink.Id });
                 GetRecepts();
             }
-
+           
             ReceptList.HeightRequest = Collection.Count * ReceptList.RowHeight + 110;
         }
 
@@ -140,7 +150,7 @@ namespace YourDrink
             using (var conn = new SQLiteConnection(App.DatabasePath))
             {
 
-                var receptList = conn.Table<Recept>().Where(recept => recept.DrinkId.Equals(Drink.Id)).ToList();
+                var receptList = conn.Table<Recept>().Where(recept => recept.DrinkId.Equals(Drink.Id) && !ReceptsToRemove.Contains(recept.Id)).ToList();
 
 
                 foreach (var recept in receptList)
@@ -218,6 +228,24 @@ namespace YourDrink
             {
                 conn.UpdateAll(That.Collection);
 
+                var recepts = conn.Table<Recept>().Where(rec => rec.DrinkId == Drink.Id);
+
+                foreach(var recept in recepts)
+                {
+                    bool found = false;
+
+                    foreach(var item in That.Collection)
+                    {
+                        if(recept.Id == item.Id)
+                        {
+                            found = true;
+                        }
+                    }
+                    if (!found)
+                    {
+                        conn.Delete(recept);
+                    }
+                }
 
                 Drink.Name = That.DrinkName.Text;
                 conn.Update(Drink);

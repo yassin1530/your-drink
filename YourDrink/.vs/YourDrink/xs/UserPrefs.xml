@@ -1,38 +1,39 @@
 ﻿<Properties StartupConfiguration="{5927F3FF-EC9A-47E8-86C4-70E4BA6E7490}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="YourDrink/Model/Recept.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="YourDrink/Model/Drink.cs">
     <Files>
       <File FileName="YourDrink/Redefinitions/CustomViewCell.cs" Line="45" Column="7" IsPinned="True" />
-      <File FileName="YourDrink/CategoryListPage.xaml" Line="8" Column="21" />
-      <File FileName="YourDrink/CategoryListPage.xaml.cs" />
+      <File FileName="YourDrink/CategoryListPage.xaml" Line="31" Column="27" />
+      <File FileName="YourDrink/CategoryListPage.xaml.cs" Line="78" Column="67" />
       <File FileName="YourDrink.Android/CustomViewCellRenderer.cs" />
-      <File FileName="YourDrink/Base64ImageConverter.cs" Line="1" Column="1" />
+      <File FileName="YourDrink/Base64ImageConverter.cs" />
       <File FileName="YourDrink.Android/CustomListViewRenderer.cs" />
-      <File FileName="YourDrink/DrinkPage.xaml" Line="1" Column="1" />
+      <File FileName="YourDrink/DrinkPage.xaml" />
       <File FileName="YourDrink/DrinkPage.xaml.cs" Line="68" Column="47" />
-      <File FileName="YourDrink/MainPage.xaml.cs" Line="94" Column="1" />
+      <File FileName="YourDrink/MainPage.xaml.cs" Line="58" Column="1" />
       <File FileName="YourDrink/MasterDetail.xaml.cs" />
       <File FileName="YourDrink/MasterDetail.xaml" />
       <File FileName="YourDrink/MainPage.xaml" />
       <File FileName="YourDrink/DetailPage.xaml.cs" />
       <File FileName="YourDrink/DetailPage.xaml" />
       <File FileName="YourDrink/Favorite.cs" Line="39" Column="1" />
-      <File FileName="YourDrink/CreateDrinkPage.xaml.cs" Line="37" Column="86" />
+      <File FileName="YourDrink/CreateDrinkPage.xaml.cs" Line="31" Column="27" />
       <File FileName="YourDrink/Model/Category.cs" />
       <File FileName="YourDrink/Model/DrinkWithImage.cs" />
       <File FileName="YourDrink.Android/Resources/drawable/baseline_grade_white_24.png" />
       <File FileName="YourDrink/PostPage.xaml" />
       <File FileName="YourDrink/Model/Post.cs" />
       <File FileName="YourDrink/PostPage.xaml.cs" />
-      <File FileName="YourDrink.Android/MainActivity.cs" Line="1" Column="1" />
-      <File FileName="YourDrink/FormatAmount.cs" Line="22" Column="21" />
-      <File FileName="YourDrink/FavoritePage.xaml.cs" Line="1" Column="1" />
-      <File FileName="YourDrink/IImageSelector.cs" Line="1" Column="1" />
-      <File FileName="YourDrink.Android/ImageSelector.cs" Line="1" Column="1" />
+      <File FileName="YourDrink.Android/MainActivity.cs" />
+      <File FileName="YourDrink/FormatAmount.cs" />
+      <File FileName="YourDrink/FavoritePage.xaml.cs" />
+      <File FileName="YourDrink/IImageSelector.cs" />
+      <File FileName="YourDrink.Android/ImageSelector.cs" />
       <File FileName="YourDrink.Android/FileAccessHelper.cs" Line="1" Column="1" />
       <File FileName="YourDrink/CreateDrinkPage.xaml" Line="20" Column="44" />
       <File FileName="YourDrink.Android/Assets/YourDrink.sqlite" />
-      <File FileName="YourDrink/Model/DrinkDetail.cs" Line="1" Column="1" />
+      <File FileName="YourDrink/Model/DrinkDetail.cs" Line="7" Column="20" />
       <File FileName="YourDrink/Model/Recept.cs" Line="14" Column="22" />
+      <File FileName="YourDrink/Model/Drink.cs" Line="7" Column="20" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -41,7 +42,7 @@
             <Node name="YourDrink" expanded="True">
               <Node name="Dependencies" expanded="True" />
               <Node name="Model" expanded="True">
-                <Node name="Recept.cs" selected="True" />
+                <Node name="Drink.cs" selected="True" />
               </Node>
               <Node name="App.xaml" expanded="True" />
               <Node name="CategoryListPage.xaml" expanded="True" />
@@ -74,6 +75,13 @@
           <Value>conn.Get&lt;Saved&gt;(0)</Value>
           <Value>conn.Get&lt;Information&gt;(0)</Value>
           <Value>conn.Table&lt;global::SmokeCheaper.Model.Information&gt;().ToArray()</Value>
+          <Value>Drink</Value>
+          <Value>conn.Table&lt;global::YourDrink.Model.Drink&gt;().ToArray()</Value>
+          <Value>conn.Table&lt;global::YourDrink.Model.DrinkDetail&gt;().ToArray()</Value>
+          <Value>DrinkDetail</Value>
+          <Value>{YourDrink.Model.Drink[13]}</Value>
+          <Value>conn.Table&lt;YourDrink.Model.Drink&gt;().ToList()</Value>
+          <Value>conn.Get&lt;YourDrink.Model.Drink&gt;(13)</Value>
         </State>
       </Pad>
     </Pads>
@@ -85,7 +93,9 @@
     <String>/Users/preyde/Library/Caches/VisualStudio/8.0/Symbols/mono/mono/c0c5c78e2bdbdbf7a70ae10b0a698708f1f2edbe</String>
   </Debugger.DebugSourceFolders>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/preyde/Desktop/drinkApp/YourDrink/YourDrink/CreateDrinkPage.xaml.cs" relfile="YourDrink/CreateDrinkPage.xaml.cs" line="39" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

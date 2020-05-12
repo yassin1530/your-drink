@@ -4600,6 +4600,7 @@ public final class R {
     public static final int star_filled_32p=0x7f07008c;
     public static final int tooltip_frame_dark=0x7f07008d;
     public static final int tooltip_frame_light=0x7f07008e;
+    public static final int zitrone=0x7f07008f;
   }
   public static final class id {
     public static final int ALT=0x7f080000;
