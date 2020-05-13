@@ -12,7 +12,7 @@
                     <Frame CornerRadius="50" IsClippedToBounds="True" Padding="0" >
                         <Image x:Name="MasterProfileImage" BackgroundColor="LightGray" WidthRequest="50" HeightRequest="50"/>
                     </Frame>
-                    <Label x:Name="Uname" Text="Pascal Frank" Margin="40, 0, 0, 0" VerticalTextAlignment="Center" FontSize="Medium" />
+                    <Label x:Name="Uname" Text="Randy Marsh" Margin="40, 0, 0, 0" VerticalTextAlignment="Center" FontSize="Medium" />
 
                 </FlexLayout>
 

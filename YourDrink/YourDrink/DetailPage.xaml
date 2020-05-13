@@ -17,7 +17,7 @@
         <ScrollView>
             <StackLayout HorizontalOptions="Center">
                 <Label x:Name="DrinkName" TextColor="Black" FontSize="35" HorizontalTextAlignment="Center" />
-                <Image x:Name="DrinkImage" /><!--Source="{Binding Image, Converter={StaticResource Base64ToImage}}" -->
+                <Image x:Name="DrinkImage" Aspect="AspectFill"  /><!--Source="{Binding Image, Converter={StaticResource Base64ToImage}}" -->
                 <Label Text="Zutaten" FontSize="30" HorizontalTextAlignment="Center" Margin="20"  />
                
                 <ListView x:Name="ReceptList" SeparatorVisibility="None" SelectionMode="None" RowHeight="25">
